@@ -15,12 +15,12 @@ import {Link, useNavigate } from "react-router-dom";
 // import { SignUp } from "../signup/Signup";
 
 export const SignIn = () => {
-  const [name, setName] = useState();
-  const [password, setPassword] = useState();
+  const [Gmail, setGmail] = useState();
+  const [Password, setPassword] = useState();
   const nav = useNavigate();
 
   const Signin = async () => {
-      await axios.post(api + "/signin", { name, password })
+      await axios.post(api + "/signin", { Gmail, Password })
           .then((res) => {
               if (res.data.message) {
                   console.log(res?.data?.values);
@@ -39,7 +39,7 @@ export const SignIn = () => {
           justifyContent: 'center', 
           alignItems: 'center', 
           height: '100vh', 
-          backgroundImage: `url('https://i.ibb.co/F6vNK3n/Adobe-Stock-615068142-Preview-transformed.jpg')`, 
+          backgroundImage: `url('https://i.ibb.co/XFJpjkB/pixelcut-export.jpg')`, 
           backgroundSize: 'cover',
           padding: '20px',
           width:'100vw',
@@ -56,13 +56,13 @@ export const SignIn = () => {
               alignItems: 'center', 
               padding: '0 20px'
           }}>
-              {/* <img src="https://i.ibb.co/GxQvXzZ/zr25d8fw5sglkz0isnuh.webp" alt="Logo 1" style={{ height: '300px' }} />
+              {/* <img src="https://i.ibb.co/GxQvXzZ/zr25d8fw5sglkz0isnuh.webp" alt="Logo 1" style={{ height: '400px',paddingTop:"200px" }} />
               <img src="https://i.ibb.co/LY3XqxX/Untitled-removebg-preview.png" alt="Logo 2" style={{ height: '400px',paddingRight:'100px' }} /> */}
           </header>
           <Card style={{
             width: '100%',
             maxWidth: '400px',
-            background: 'rgba(255, 255, 255, 0.5)',
+            background: 'rgba(255, 255, 255, 0.8)',
             borderRadius: '15px',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
             padding: '20px'
@@ -80,7 +80,7 @@ export const SignIn = () => {
               
               <FormControl marginBottom="15px">
                 <FormLabel color="#1a202c">Email address</FormLabel> 
-                  <Input type='email' placeholder="Enter your email" onChange={(e)=>setName(e.target.value)} style={{
+                  <Input type='email' placeholder="Enter your email" onChange={(e)=>setGmail(e.target.value)} style={{
                   borderRadius: '10px',
                   padding: '10px',
                   fontSize: '16px',
@@ -119,7 +119,7 @@ export const SignIn = () => {
               >
                 Sign In
               </Button>
-              <Text color="#1a202c"> 
+              <Text color="#1a202c"> <br></br>
                   Don't have an account? <Link to={"/signup"}>
                       <Button colorScheme="purple">
                           Sign Up

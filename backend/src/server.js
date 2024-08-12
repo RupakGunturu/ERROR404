@@ -29,10 +29,10 @@ app.post('/insert', async(req, res) => {
 
 app.post('/signin', async(req, res) => {
     console.log(req.body)
-    await db.collection("ast").findOne({Gmail:req.body.name})
+    await db.collection("ast").findOne({Gmail:req.body.Gmail})
     .then((result)=>{
         console.log(result)
-        if(result?.Password===req.body.password){
+        if(result?.Password===req.body.Password){
             res.json({message:"login sucess", values:result})
         } else {
             res.json({error:"user not found"})
@@ -43,7 +43,7 @@ app.post('/signin', async(req, res) => {
 
 app.post('/signup', async(req, res) => {
     console.log(req.body)
-    await db.collection("newuser").insertOne({Gmail:req.body.gmail,Password:req.body.password,Phone:req.body.phone,Registerno:req.body.register})
+    await db.collection("newuser").insertOne({Gmail:req.body.Gmail,Password:req.body.Password,Phone:req.body.Phone,Registerno:req.body.Register})
     .then((result)=>{
         console.log(result)
         if(result){

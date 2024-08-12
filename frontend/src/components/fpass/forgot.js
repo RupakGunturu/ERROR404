@@ -1,7 +1,7 @@
 import { Card, CardBody, FormControl, FormHelperText, FormLabel, Input, Button } from "@chakra-ui/react"; 
 // import axios from "axios";
 // import { api } from "../action/api";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 export const Updatepass = () => {
