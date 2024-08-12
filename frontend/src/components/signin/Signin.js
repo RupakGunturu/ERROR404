@@ -56,8 +56,8 @@ export const SignIn = () => {
               alignItems: 'center', 
               padding: '0 20px'
           }}>
-              {/* <img src="https://i.ibb.co/GxQvXzZ/zr25d8fw5sglkz0isnuh.webp" alt="Logo 1" style={{ height: '400px',paddingTop:"200px" }} />
-              <img src="https://i.ibb.co/LY3XqxX/Untitled-removebg-preview.png" alt="Logo 2" style={{ height: '400px',paddingRight:'100px' }} /> */}
+              {/* <img src="https://i.ibb.co/GxQvXzZ/zr25d8fw5sglkz0isnuh.webp" alt="Logo 1" style={{ height: '400px',paddingTop:"200px" }} /> */}
+              {/* <img src="https://i.ibb.co/LY3XqxX/Untitled-removebg-preview.png" alt="Logo 2" style={{ height: '400px',paddingRight:'100px' }} /> */}
           </header>
           <Card style={{
             width: '100%',

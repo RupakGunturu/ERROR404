@@ -29,7 +29,7 @@ app.post('/insert', async(req, res) => {
 
 app.post('/signin', async(req, res) => {
     console.log(req.body)
-    await db.collection("ast").findOne({Gmail:req.body.Gmail})
+    await db.collection("newuser").findOne({Gmail:req.body.Gmail})
     .then((result)=>{
         console.log(result)
         if(result?.Password===req.body.Password){
