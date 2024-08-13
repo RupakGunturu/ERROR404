@@ -1,31 +1,25 @@
-// pages/UpdateScores.js
-
 import React, { useState } from 'react';
 import { Box, Heading, FormControl, FormLabel, Input, Button, Select } from '@chakra-ui/react';
 import axios from 'axios';
+import { api } from '../actions/api';
 
-function UpdateScores() {
-  const [matchId, setMatchId] = useState('');
+export const AdminUpdate=()=>{
+    const [matchId, setMatchId] = useState('');
   const [runs, setRuns] = useState('');
   const [wickets, setWickets] = useState('');
   const [overs, setOvers] = useState('');
 
-  const handleUpdateScore = async () => {
-    try {
-      await axios.post('/api/update-score', {
-        matchId,
-        runs,
-        wickets,
-        overs,
-      });
-      alert('Score updated successfully!');
-    } catch (error) {
-      console.error('Error updating score:', error);
-      alert('Failed to update score.');
-    }
-  };
+  const Adminupdate=async()=>{
+    await axios.post(api+'/score',{matchId,runs,wickets,overs})
+    .then((res)=>{
+        console.log(res?.data?.values);
+        alert('Score updated successfully!');
+    })
+    .catch((e)=>console.log(e));
+  }
 
-  return (
+
+return (
     <Box p={8} maxW="md" mx="auto">
       <Heading mb={6}>Update Live Scores</Heading>
       <FormControl mb={4}>
@@ -38,7 +32,7 @@ function UpdateScores() {
       </FormControl>
       <FormControl mb={4}>
         <FormLabel>Runs</FormLabel>
-        <Input type="number" value={runs} onChange={(e) => setRuns(e.target.value)} />
+        <Input type="number" onChange={(e)=>setRuns(e.target.value)} />
       </FormControl>
       <FormControl mb={4}>
         <FormLabel>Wickets</FormLabel>
@@ -48,11 +42,9 @@ function UpdateScores() {
         <FormLabel>Overs</FormLabel>
         <Input type="number" value={overs} onChange={(e) => setOvers(e.target.value)} />
       </FormControl>
-      <Button colorScheme="red" onClick={handleUpdateScore}>
+      <Button colorScheme="red" onClick={Adminupdate}>
         Update Score
       </Button>
     </Box>
   );
 }
-
-export default UpdateScores;

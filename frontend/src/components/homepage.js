@@ -4,8 +4,8 @@ import React from 'react';
 // import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Heading, Text, Button, VStack,Flex } from '@chakra-ui/react';
-import { SignIn } from './signin/signin';
-import { SignUp } from './signup/signup';
+// import { SignIn } from './signin/signin';
+// import { SignUp } from './signup/signup';
 
 export const Home=()=>{
     const nav=useNavigate()
@@ -55,7 +55,7 @@ export const Home=()=>{
             Register
           </Button>
         </Link>
-        <Link to={'/dashboard'}>
+        <Link to={'/admin'}>
           <Button
             colorScheme="green"
             width="full"
@@ -65,7 +65,7 @@ export const Home=()=>{
             py={6}
             fontSize="lg"
           >
-            View Dashboard
+            Admin Dashboard
           </Button>
         </Link>
       </VStack>
