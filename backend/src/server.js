@@ -55,6 +55,14 @@ app.post('/signup', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
+app.post('/findmany', async(req, res) => {
+    await db.collection("details").find().toArray()
+    .then((result)=>{
+        res.json(result)
+    })
+    .catch((e)=>console.log(e))
+})
+
 let matches = {
     match1: { match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
     match2: { match: "IT techies vs Royal civil ", runs: 0, wickets: 0, overs: 0.0 }

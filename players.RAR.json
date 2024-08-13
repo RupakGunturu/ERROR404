@@ -1,0 +1,648 @@
+[{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d46"
+  },
+  "PlayerName": "Shastri",
+  "Team": "IT",
+  "Runs": "2443",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d47"
+  },
+  "PlayerName": "Riyan",
+  "Team": "IT",
+  "Runs": "3323",
+  "Wickets": "02"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d48"
+  },
+  "PlayerName": "Ram",
+  "Team": "IT",
+  "Runs": "5432",
+  "Wickets": "10"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4a"
+  },
+  "PlayerName": "Madhav",
+  "Team": "IT",
+  "Runs": "6542",
+  "Wickets": "21"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4b"
+  },
+  "PlayerName": "Bhaskar",
+  "Team": "IT",
+  "Runs": "300",
+  "Wickets": "32"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4c"
+  },
+  "PlayerName": "Adi",
+  "Team": "IT",
+  "Runs": "6201",
+  "Wickets": "07"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4d"
+  },
+  "PlayerName": "Teja",
+  "Team": "IT",
+  "Runs": "243",
+  "Wickets": "21"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4e"
+  },
+  "PlayerName": "Santhosh",
+  "Team": "IT",
+  "Runs": "1002",
+  "Wickets": "16"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d4f"
+  },
+  "PlayerName": "Anil",
+  "Team": "IT",
+  "Runs": "2561",
+  "Wickets": "12"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d50"
+  },
+  "PlayerName": "Nishanth",
+  "Team": "IT",
+  "Runs": "4443",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb28cbaa99e043248a1d51"
+  },
+  "PlayerName": "Ishanth",
+  "Team": "IT",
+  "Runs": "97",
+  "Wickets": "42"
+},
+{
+  "_id": {
+    "$oid": "66bb29abaa99e043248a1d5d"
+  },
+  "PlayerName": "Vijay",
+  "Team": "IT",
+  "Runs": "97",
+  "Wickets": "42"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d5e"
+  },
+  "PlayerName": "Rupak",
+  "Team": "CIC",
+  "Runs": "9469",
+  "Wickets": "31"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d5f"
+  },
+  "PlayerName": "Pavan",
+  "Team": "CIC",
+  "Runs": "5423",
+  "Wickets": "36"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d60"
+  },
+  "PlayerName": "Murthy",
+  "Team": "CIC",
+  "Runs": "3422",
+  "Wickets": "35"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d61"
+  },
+  "PlayerName": "Mahendra",
+  "Team": "CIC",
+  "Runs": "6421",
+  "Wickets": "23"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d62"
+  },
+  "PlayerName": "Akhil",
+  "Team": "CIC",
+  "Runs": "7542",
+  "Wickets": "15"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d63"
+  },
+  "PlayerName": "Krupa",
+  "Team": "CIC",
+  "Runs": "982",
+  "Wickets": "22"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d64"
+  },
+  "PlayerName": "Uday",
+  "Team": "CIC",
+  "Runs": "1781",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d65"
+  },
+  "PlayerName": "Arjun",
+  "Team": "CIC",
+  "Runs": "2413",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d66"
+  },
+  "PlayerName": "Manoj",
+  "Team": "CIC",
+  "Runs": "1602",
+  "Wickets": "09"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d67"
+  },
+  "PlayerName": "Sai Vardhan",
+  "Team": "CIC",
+  "Runs": "3231",
+  "Wickets": "02"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d68"
+  },
+  "PlayerName": "Vishnu",
+  "Team": "CIC",
+  "Runs": "4413",
+  "Wickets": "07"
+},
+{
+  "_id": {
+    "$oid": "66bb2b6caa99e043248a1d69"
+  },
+  "PlayerName": "Vijay",
+  "Team": "CIC",
+  "Runs": "5231",
+  "Wickets": "18"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6a"
+  },
+  "PlayerName": "Rasheed",
+  "Team": "CSE",
+  "Runs": "3173",
+  "Wickets": "19"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6b"
+  },
+  "PlayerName": "Shankar",
+  "Team": "CSE",
+  "Runs": "5653",
+  "Wickets": "15"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6c"
+  },
+  "PlayerName": "Pranith",
+  "Team": "CSE",
+  "Runs": "3192",
+  "Wickets": "35"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6d"
+  },
+  "PlayerName": "Pawan",
+  "Team": "CSE",
+  "Runs": "6521",
+  "Wickets": "23"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6e"
+  },
+  "PlayerName": "Satish",
+  "Team": "CSE",
+  "Runs": "5476",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d6f"
+  },
+  "PlayerName": "Rahul",
+  "Team": "CSE",
+  "Runs": "5631",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d70"
+  },
+  "PlayerName": "Paradeep",
+  "Team": "CSE",
+  "Runs": "5286",
+  "Wickets": "14"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d71"
+  },
+  "PlayerName": "Jithu",
+  "Team": "CSE",
+  "Runs": "7421",
+  "Wickets": "08"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d72"
+  },
+  "PlayerName": "Krishna",
+  "Team": "CSE",
+  "Runs": "1982",
+  "Wickets": "12"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d73"
+  },
+  "PlayerName": "Sandeep",
+  "Team": "CSE",
+  "Runs": "3589",
+  "Wickets": "06"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d74"
+  },
+  "PlayerName": "Vinay",
+  "Team": "CSE",
+  "Runs": "4723",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb2cc3aa99e043248a1d75"
+  },
+  "PlayerName": "Amar",
+  "Team": "CSE",
+  "Runs": "2231",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d76"
+  },
+  "PlayerName": "Karthik",
+  "Team": "EEE",
+  "Runs": "4213",
+  "Wickets": "21"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d77"
+  },
+  "PlayerName": "Madhan",
+  "Team": "EEE",
+  "Runs": "5321",
+  "Wickets": "06"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d78"
+  },
+  "PlayerName": "Rohan",
+  "Team": "EEE",
+  "Runs": "3322",
+  "Wickets": "15"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d79"
+  },
+  "PlayerName": "Sekhar",
+  "Team": "EEE",
+  "Runs": "1721",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7a"
+  },
+  "PlayerName": "Reddy",
+  "Team": "EEE",
+  "Runs": "5476",
+  "Wickets": "15"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7b"
+  },
+  "PlayerName": "Praneeth",
+  "Team": "EEE",
+  "Runs": "6131",
+  "Wickets": "07"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7c"
+  },
+  "PlayerName": "Prasanth",
+  "Team": "EEE",
+  "Runs": "1726",
+  "Wickets": "24"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7d"
+  },
+  "PlayerName": "Karn",
+  "Team": "EEE",
+  "Runs": "7611",
+  "Wickets": "08"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7e"
+  },
+  "PlayerName": "Sudheer",
+  "Team": "EEE",
+  "Runs": "6282",
+  "Wickets": "02"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d7f"
+  },
+  "PlayerName": "Sai",
+  "Team": "EEE",
+  "Runs": "1722",
+  "Wickets": "26"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d80"
+  },
+  "PlayerName": "Jashwanth",
+  "Team": "EEE",
+  "Runs": "4315",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb30a0aa99e043248a1d81"
+  },
+  "PlayerName": "Jagadesh",
+  "Team": "EEE",
+  "Runs": "5314",
+  "Wickets": "11"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d82"
+  },
+  "PlayerName": "Virat",
+  "Team": "CIVIL",
+  "Runs": "5213",
+  "Wickets": "21"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d83"
+  },
+  "PlayerName": "Rohit",
+  "Team": "CIVIL",
+  "Runs": "3276",
+  "Wickets": "16"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d84"
+  },
+  "PlayerName": "Viraj",
+  "Team": "CIVIL",
+  "Runs": "2233",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d85"
+  },
+  "PlayerName": "Dhanujay",
+  "Team": "CIVIL",
+  "Runs": "26711",
+  "Wickets": "03"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d86"
+  },
+  "PlayerName": "Desai",
+  "Team": "CIVIL",
+  "Runs": "5666",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d87"
+  },
+  "PlayerName": "Dev",
+  "Team": "CIVIL",
+  "Runs": "3161",
+  "Wickets": "08"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d88"
+  },
+  "PlayerName": "Jay",
+  "Team": "CIVIL",
+  "Runs": "6668",
+  "Wickets": "00"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d89"
+  },
+  "PlayerName": "Vikram",
+  "Team": "CIVIL",
+  "Runs": "4676",
+  "Wickets": "04"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d8a"
+  },
+  "PlayerName": "Sampath",
+  "Team": "CIVIL",
+  "Runs": "7623",
+  "Wickets": "03"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d8b"
+  },
+  "PlayerName": "Cyril",
+  "Team": "CIVIL",
+  "Runs": "6578",
+  "Wickets": "12"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d8c"
+  },
+  "PlayerName": "Manohar",
+  "Team": "CIVIL",
+  "Runs": "3415",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb3296aa99e043248a1d8d"
+  },
+  "PlayerName": "Jagadesh",
+  "Team": "CIVIL",
+  "Runs": "4135",
+  "Wickets": "10"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d8e"
+  },
+  "PlayerName": "Dravid",
+  "Team": "MECH",
+  "Runs": "7632",
+  "Wickets": "21"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d8f"
+  },
+  "PlayerName": "Susheel",
+  "Team": "MECH",
+  "Runs": "6721",
+  "Wickets": "06"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d90"
+  },
+  "PlayerName": "Padma Rao",
+  "Team": "MECH",
+  "Runs": "5431",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d91"
+  },
+  "PlayerName": "David",
+  "Team": "MECH",
+  "Runs": "2681",
+  "Wickets": "03"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d92"
+  },
+  "PlayerName": "Mansoor",
+  "Team": "MECH",
+  "Runs": "6656",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d93"
+  },
+  "PlayerName": "Raja",
+  "Team": "MECH",
+  "Runs": "1365",
+  "Wickets": "05"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d94"
+  },
+  "PlayerName": "Keshava",
+  "Team": "MECH",
+  "Runs": "7833",
+  "Wickets": "12"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d95"
+  },
+  "PlayerName": "Lokesh",
+  "Team": "MECH",
+  "Runs": "6676",
+  "Wickets": "24"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d96"
+  },
+  "PlayerName": "Ajay",
+  "Team": "MECH",
+  "Runs": "4621",
+  "Wickets": "13"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d97"
+  },
+  "PlayerName": "Vasu",
+  "Team": "MECH",
+  "Runs": "7632",
+  "Wickets": "12"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d98"
+  },
+  "PlayerName": "Yash",
+  "Team": "MECH",
+  "Runs": "5676",
+  "Wickets": "17"
+},
+{
+  "_id": {
+    "$oid": "66bb34ecaa99e043248a1d99"
+  },
+  "PlayerName": "Tharun",
+  "Team": "MECH",
+  "Runs": "4754",
+  "Wickets": "18"
+}]

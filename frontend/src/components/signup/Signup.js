@@ -9,6 +9,8 @@ import { useState } from "react";
 import { api } from "../actions/api";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Navbar } from "../navbar/nav";
+// import { Navbar } from "../navbar/nav";
 
 export const SignUp = () => {
     const [Gmail, setGmail] = useState()
@@ -35,6 +37,8 @@ export const SignUp = () => {
   }
 
     return (
+      <>
+      <Navbar/>
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
@@ -137,5 +141,6 @@ export const SignUp = () => {
               </CardBody>
             </Card>
           </div>
+          </>
     )
 }
