@@ -9,6 +9,7 @@ import { AdminLogin } from './components/admin/login';
 import { Dashboard } from './components/board/dashboard';
 import { AdminDashboard } from './components/admin/dashboard';
 import { AdminUpdate } from './components/admin/adminupdate';
+import { ProtectedRoute } from './components/admin/adminprot';
 
 function App() {
   return (
@@ -21,13 +22,15 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route
             path="/admin-dashboard"
-            element={<AdminDashboard/>
-              // <ProtectedRoute>
-              //   <AdminDashboard />
-              // </ProtectedRoute>
+            element={
+              <ProtectedRoute>
+                <AdminDashboard/>
+              </ProtectedRoute>
             }
           />
-          <Route path='/score' element={<AdminUpdate/>}/>
+          <Route path='/score' element={<ProtectedRoute>
+            <AdminUpdate/>
+          </ProtectedRoute>}/>
     </Routes>
     </BrowserRouter>
   );

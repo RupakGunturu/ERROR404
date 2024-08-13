@@ -55,6 +55,39 @@ app.post('/signup', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
+let matches = {
+    match1: { match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
+    match2: { match: "IT techies vs Royal civil ", runs: 0, wickets: 0, overs: 0.0 }
+  };
+
+  app.get('/livescore', (req, res) => {
+    const matchId = req.query.matchId || 'match1';
+    const match = matches[matchId];
+    
+    if (match) {
+      res.json(match);
+    } else {
+      res.status(404).json({ error: 'Match not found' });
+    }
+  });
+
+  app.post('/score', (req, res) => {
+    const { matchId, runs, wickets, overs } = req.body;
+  
+    if (!matches[matchId]) {
+      return res.status(404).json({ error: 'Match not found' });
+    }
+  
+    matches[matchId] = {
+      ...matches[matchId],
+      runs: parseInt(runs),
+      wickets: parseInt(wickets),
+      overs: parseFloat(overs)
+    };
+  
+    res.json({ message: 'Score updated successfully', match: matches[matchId] });
+  });
+
 connectToDB(() => {
     app.listen(9000, () => {
         console.log("server running at 9000");
