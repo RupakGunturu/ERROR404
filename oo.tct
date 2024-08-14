@@ -1,58 +1,38 @@
-// pages/UpdateScores.js
+app.get("/api/slots", async (req, res) => {
+  try {
+    const slots = await Slot.find();
+    res.json(slots);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch slots" });
+  }
+});
 
-import React, { useState } from 'react';
-import { Box, Heading, FormControl, FormLabel, Input, Button, Select } from '@chakra-ui/react';
-import axios from 'axios';
+app.put("/api/slots/:id", async (req, res) => {
+  const { id } = req.params;
+  const { booked } = req.body;
 
-function UpdateScores() {
-  const [matchId, setMatchId] = useState('');
-  const [runs, setRuns] = useState('');
-  const [wickets, setWickets] = useState('');
-  const [overs, setOvers] = useState('');
+  try {
+    const slot = await Slot.findByIdAndUpdate(id, { booked }, { new: true });
+    res.json(slot);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update slot" });
+  }
+});
 
-  const handleUpdateScore = async () => {
-    try {
-      await axios.post('/api/update-score', {
-        matchId,
-        runs,
-        wickets,
-        overs,
-      });
-      alert('Score updated successfully!');
-    } catch (error) {
-      console.error('Error updating score:', error);
-      alert('Failed to update score.');
-    }
-  };
+app.post("/api/init-slots", async (req, res) => {
+  const initialSlots = [
+    { day: "Day 1", slot: "Morning" },
+    { day: "Day 1", slot: "Afternoon" },
+    { day: "Day 2", slot: "Morning" },
+    { day: "Day 2", slot: "Afternoon" },
+    { day: "Day 3", slot: "Morning" },
+    { day: "Day 3", slot: "Afternoon" },
+  ];
 
-  return (
-    <Box p={8} maxW="md" mx="auto">
-      <Heading mb={6}>Update Live Scores</Heading>
-      <FormControl mb={4}>
-        <FormLabel>Select Match</FormLabel>
-        <Select placeholder="Select match" value={matchId} onChange={(e) => setMatchId(e.target.value)}>
-          <option value="match1">Match 1</option>
-          <option value="match2">Match 2</option>
-          {/* Add dynamic matches here */}
-        </Select>
-      </FormControl>
-      <FormControl mb={4}>
-        <FormLabel>Runs</FormLabel>
-        <Input type="number" value={runs} onChange={(e) => setRuns(e.target.value)} />
-      </FormControl>
-      <FormControl mb={4}>
-        <FormLabel>Wickets</FormLabel>
-        <Input type="number" value={wickets} onChange={(e) => setWickets(e.target.value)} />
-      </FormControl>
-      <FormControl mb={4}>
-        <FormLabel>Overs</FormLabel>
-        <Input type="number" value={overs} onChange={(e) => setOvers(e.target.value)} />
-      </FormControl>
-      <Button colorScheme="red" onClick={handleUpdateScore}>
-        Update Score
-      </Button>
-    </Box>
-  );
-}
-
-export default UpdateScores;
+  try {
+    await Slot.insertMany(initialSlots);
+    res.json({ message: "Slots initialized" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to initialize slots" });
+  }
+});

@@ -82,6 +82,10 @@ export const Navbar = () => {
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Admin Login
                         </Link>
+                        <Link as={RouterLink} to="/Dept-login" px={4} py={2} rounded={'md'}
+                            _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
+                            PT SIR Login
+                        </Link>
                     </HStack>
                 </HStack>
             </Flex>

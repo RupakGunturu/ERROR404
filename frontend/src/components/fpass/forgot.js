@@ -25,6 +25,10 @@ export const Updatepass = () => {
           }
       })
     }
+    else{
+      alert("Wrong otp")
+      nav('/forgot')
+    }
     }
   return (
     <div style={{ 

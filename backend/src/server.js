@@ -97,12 +97,53 @@ let matches = {
   });
 
 //   app.post('/updateone', async(req, res) => {
-//     await db.collection("ast").findOneAndUpdate({Name:req.body.},{$set:{Age:20}})
+//     await db.collection("ast").findOneAndUpdate({Name:req.body.Gmail},{$set:{Password:req.body,Password}})
 //     .then((result)=>{
-//         res.json(result)
+//         res.json({message: 'updated successfully',values:result});
 //     })
 //     .catch((e)=>console.log(e))
 // })
+
+app.get("/slots", async (req, res) => {
+    try {
+        alert("here")
+      const slots = await Slot.find();
+      res.json(slots);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch slots" });
+    }
+  });
+  
+  app.put("/slots/:id", async (req, res) => {
+    const { id } = req.params;
+    const { booked } = req.body;
+  
+    try {
+      const slot = await Slot.findByIdAndUpdate(id, { booked }, { new: true });
+      res.json(slot);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to update slot" });
+    }
+  });
+  
+  app.post("/init-slots", async (req, res) => {
+    const initialSlots = [
+      { day: "Day 1", slot: "Morning" },
+      { day: "Day 1", slot: "Afternoon" },
+      { day: "Day 2", slot: "Morning" },
+      { day: "Day 2", slot: "Afternoon" },
+      { day: "Day 3", slot: "Morning" },
+      { day: "Day 3", slot: "Afternoon" },
+    ];
+  
+    try {
+      await Slot.insertMany(initialSlots);
+      res.json({ message: "Slots initialized" });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to initialize slots" });
+    }
+  });
+  
 
 connectToDB(() => {
     app.listen(9000, () => {

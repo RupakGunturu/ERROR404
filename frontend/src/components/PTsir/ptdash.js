@@ -3,11 +3,11 @@ import { Box, Heading, SimpleGrid, Button, Flex } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../navbar/nav';
 
-export const AdminDashboard = () => {
+export const PTdashboard = () => {
     const nav = useNavigate();
 
-    const updateScores = () => {
-        nav('/score');
+    const updateslots = () => {
+        nav('/slot-booking');
     };
 
     return (
@@ -16,7 +16,7 @@ export const AdminDashboard = () => {
         <Flex
             height="100vh"
             width="100vw"
-            bg="url('https://i.postimg.cc/RhmXMWgf/pixelcut-export-2.jpg')"
+            bg="url('https://i.postimg.cc/SxbGx5bH/Pngtree-five-ring-background-of-red-1619320.png')"
             bgSize="cover"
             bgPosition="center"
             alignItems="center"
@@ -39,7 +39,7 @@ export const AdminDashboard = () => {
                     color="red.500" 
                     // textShadow="2px 2px 8px rgba(0, 0, 0, 0.8)"
                 >
-                    Admin Dashboard
+                    PT SIR Dashboard
                 </Heading>
                 <SimpleGrid columns={1} spacing={8}>
                     {/* <Button colorScheme="teal" size="lg" onClick={handleScheduleMatches}>
@@ -48,12 +48,12 @@ export const AdminDashboard = () => {
                     <Button 
                         colorScheme="red" 
                         size="lg" 
-                        onClick={updateScores}
+                        onClick={updateslots}
                         bg="red.600"
                         _hover={{ bg: "red.700" }}
                         _active={{ bg: "red.800" }}
                     >
-                        Update Live Scores
+                        Update Slots
                     </Button>
                 </SimpleGrid>
             </Box>
