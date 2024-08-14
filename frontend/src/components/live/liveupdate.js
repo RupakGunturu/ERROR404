@@ -38,6 +38,8 @@ export const Livescore = () => {
             color="white"
         >
             <Box
+            as="video"
+            src="anim.mp4"
                 // src="https://rr3---sn-h557sn66.googlevideo.com/videoplayback?expire=1723653464&ei=-Ii8ZtG5DojrrtoP7-WcsQs&ip=180.248.47.213&id=o-ACIYIjF4wKrnYxek3o7XF-AITD6NOktBHbayewhJAm1f&itag=244&aitags=133%2C134%2C135%2C160%2C242%2C243%2C244%2C278%2C394%2C395%2C396%2C397&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AQmm2ey2Y8m7kOfQZ1j6zfXumRdItQjQaooRXnoPjoBwTOhygDYqSqMoftsWAjfD3awaJnNPr9JqV9_k&spc=Mv1m9hjinzSyESqemSmGS_yn3KbT7Itat-ZYNMlA3lCk63qcLWobJs6_Wwx1&vprv=1&svpuc=1&mime=video%2Fwebm&ns=YAwcdgJvOu5CBz1s8M69WuEQ&rqh=1&gir=yes&clen=2742936&dur=30.080&lmt=1506784732660715&keepalive=yes&c=WEB&sefc=1&n=nak5R7FHf9G2lw&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgMrMJ5TCcmjhxeOiSmyLu1RcLHCKtgtKNqOVQLhxjwisCIQDzsUxJVCG0HOVYxUUZJKo-gmr57S1LLchsHa7sI2AIPQ%3D%3D&rm=sn-2uuxa3vh-habl7e,sn-nposd7s&rrc=79,104&fexp=24350516,24350517,24350557,24350561&req_id=bcc78649b221a3ee&redirect_counter=2&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=ep&mip=175.101.94.8&mm=29&mn=sn-h557sn66&ms=rdu&mt=1723637111&mv=m&mvi=3&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRgIhAN6PL4aw5j2la6JtaVhtS0-1DKfQHMl3LknG5QqWeag9AiEA2SM8EpUc9bmfylpp8dflqsAYfbDDXxlfW1FHW9dX3ko%3D"
                 // src="c:\Users\Pavan Kumar\Desktop\pkp\newpro\ERROR404\in-y2mate.com - TCL T20 Title Animation_v720P.mp4"
                 // src="https://www.youtube.com/embed/bkzKE0zTExU?si=-alQPZtOHC9T5nxB"

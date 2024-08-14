@@ -14,7 +14,7 @@ import { StudentData } from './components/players/details';
 // import { Navbar } from './components/navbar/nav';
 import { PTsirLogin } from './components/PTsir/ptlogin';
 import { PTdashboard } from './components/PTsir/ptdash';
-import { SlotBooking } from './components/PTsir/slotbook';
+import { SlotBook, SlotBooking } from './components/PTsir/slotbook';
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
           <Route path='/player-info' element={<StudentData/>}/>
           <Route path='/Dept-login' element={<PTsirLogin/>}/>
           <Route path='/PTdash' element={<PTdashboard/>}/>
-          <Route path='/slot-booking' element={<SlotBooking/>}/>
+          <Route path='/slot-booking' element={<SlotBook/>}/>
           {/* </Route> */}
     </Routes>
     </BrowserRouter>

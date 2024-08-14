@@ -104,45 +104,52 @@ let matches = {
 //     .catch((e)=>console.log(e))
 // })
 
-app.get("/slots", async (req, res) => {
-    try {
-        alert("here")
-      const slots = await Slot.find();
-      res.json(slots);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to fetch slots" });
+// app.get('/slots', async (req, res) => {
+//   try {
+//     const slots = await db.collection('slots').find().toArray();
+//     res.json(slots);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error fetching slots', error });
+//   }
+// });
+
+// app.put('/slots/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const { booked } = req.body;
+
+//   try {
+//     const result = await db.collection('slots').updateOne(
+//       { _id: new ObjectId(id) },
+//       { $set: { booked: booked } }
+//     );
+
+//     if (result.matchedCount === 0) {
+//       return res.status(404).json({ message: 'Slot not found' });
+//     }
+
+//     res.json({ message: 'Slot updated successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error updating slot', error });
+//   }
+// });
+
+app.post('/slot', async (req, res) => {
+  try {
+    const matchid = req.body.matchid;
+    const existingSlot = await db.collection('slot').findOne({ matchid });
+    if (existingSlot) {
+      return res.json({ message: "Match Already Booked" });
     }
-  });
-  
-  app.put("/slots/:id", async (req, res) => {
-    const { id } = req.params;
-    const { booked } = req.body;
-  
-    try {
-      const slot = await Slot.findByIdAndUpdate(id, { booked }, { new: true });
-      res.json(slot);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to update slot" });
+
+    const result = await db.collection('slot').insertOne({ matchid });
+    if (result) {
+      return res.json({ message: "Match Booked", values: result });
     }
-  });
-  
-  app.post("/init-slots", async (req, res) => {
-    const initialSlots = [
-      { day: "Day 1", slot: "Morning" },
-      { day: "Day 1", slot: "Afternoon" },
-      { day: "Day 2", slot: "Morning" },
-      { day: "Day 2", slot: "Afternoon" },
-      { day: "Day 3", slot: "Morning" },
-      { day: "Day 3", slot: "Afternoon" },
-    ];
-  
-    try {
-      await Slot.insertMany(initialSlots);
-      res.json({ message: "Slots initialized" });
-    } catch (error) {
-      res.status(500).json({ error: "Failed to initialize slots" });
-    }
-  });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
   
 
 connectToDB(() => {
