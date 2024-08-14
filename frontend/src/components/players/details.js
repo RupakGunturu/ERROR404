@@ -59,7 +59,7 @@ export const StudentData = () => {
             <Flex justify="center" w="100%" mb={6}>
                 <Input
                     color='teal'
-                    placeholder='Enter Player Name, Team, or Mobile Number'
+                    placeholder='Enter Player Name or Team Name'
                     _placeholder={{ color: 'gray.400' }}
                     onChange={(e) => setSearch(e.target.value)}
                     size="lg"
@@ -77,7 +77,7 @@ export const StudentData = () => {
                 borderRadius="lg"
                 bg="gray.700"
                 boxShadow="lg"
-                p={4}
+                p={6}
             >
                 <Table variant='simple' colorScheme='purple'>
                     <TableCaption color="purple.200">Bootcamp Students Data</TableCaption>
@@ -86,6 +86,8 @@ export const StudentData = () => {
                             <Th color="white">Player Name</Th>
                             <Th color="white">Team</Th>
                             <Th color="white">Runs</Th>
+                            <Th color="white">StrikeRate</Th>
+                            <Th color="white">Average</Th>
                             <Th color="white">Wickets</Th>
                         </Tr>
                     </Thead>
@@ -93,13 +95,14 @@ export const StudentData = () => {
                         {
                             data?.filter((filt) => 
                                 filt?.PlayerName?.toLowerCase()?.includes(search?.toLowerCase()) ||
-                                filt?.Team?.toLowerCase()?.includes(search?.toLowerCase()) ||
-                                filt?.Phone?.includes(search?.toLowerCase())
+                                filt?.Team?.toLowerCase()?.includes(search?.toLowerCase())
                             )?.sort((a, b) => a?.PlayerName.localeCompare(b?.PlayerName))?.map((val, index) => (
                                 <Tr key={index} bg={index % 2 === 0 ? "purple.500" : "purple.400"}>
                                     <Td color="white">{val.PlayerName}</Td>
                                     <Td color="white">{val.Team}</Td>
                                     <Td color="white">{val.Runs}</Td>
+                                    <Td color="white">{val.StrikeRate}</Td>
+                                    <Td color="white">{val.Average}</Td>
                                     <Td color="white">{val.Wickets}</Td>
                                 </Tr>
                             ))

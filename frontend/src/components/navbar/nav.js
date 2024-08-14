@@ -16,7 +16,7 @@ export const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     // Background and link color based on light/dark mode
-    const bg = useColorModeValue('rgba(255, 255, 255, 0.05)', 'rgba(26, 32, 44, 0.05)');
+    const bg = useColorModeValue('rgba(255, 255, 255, 0.5)', 'rgba(26, 32, 44, 0.05)');
     const linkHoverBg = useColorModeValue('teal.200', 'teal.600');
     const linkColor = useColorModeValue('gray.700', 'white');
     const buttonBorderColor = useColorModeValue('teal.500', 'teal.200');

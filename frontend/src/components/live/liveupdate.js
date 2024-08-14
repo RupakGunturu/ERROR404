@@ -62,7 +62,7 @@ export const Livescore = () => {
                     objectFit: 'cover',
                     zIndex: '-1',
                 }}
-                src="https://rr3---sn-h557snzr.googlevideo.com/videoplayback?expire=1723657878&ei=Npq8ZraEN9a0obIP7-ehyAg&ip=181.188.162.116&id=o-AN0RFaccDvwpeedHyCNZEj9otmePh1cqUHG-fJC8NXzK&itag=248&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AQmm2eweVnqNz2keeXH8mqp1FTThk5sXOd5QOLFfWxqtiKO5hfUgntUOBuWkSk5D6Jh-8bNmHRARnm10&spc=Mv1m9gxUfkrntxqGs39bTrZGZp98CUxV52WI5ISzmGmQD2RQcF8N&vprv=1&svpuc=1&mime=video%2Fwebm&ns=7RrimcI6wrqS-nxrdFCrZogQ&rqh=1&gir=yes&clen=7363026&dur=24.240&lmt=1702288850832264&keepalive=yes&c=WEB_CREATOR&sefc=1&txp=530F224&n=FZw0iI2q5beNaA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAO7KV0tqtdBtDkPa54cDe9uJCW9y3htNZXB4YfXy8k8XAiA8AZ8G0en79shp0D_7MluHSEpPWSUSaYrii2OgZRjkXw%3D%3D&rm=sn-upbvcv-88pl76,sn-bg0ees7s&rrc=79,104&fexp=24350516,24350518,24350556,24350561&req_id=d7ac61e711d9a3ee&cmsv=e&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=Et&mip=175.101.94.8&mm=29&mn=sn-h557snzr&ms=rdu&mt=1723648877&mv=m&mvi=3&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRQIgNSEZX_Qx95hGQHExbCN6N2OV3Y1-ey_PcKeqD_DAhn0CIQCvE9RbhJSOijjyzCOaHzL05mNgkTWvvBOvr9eOxygnGA%3D%3D"
+                src="https://rr2---sn-npoe7nsy.googlevideo.com/videoplayback?expire=1723680169&ei=SfG8ZtLDHvnt2roPpe-r2AE&ip=2001%3A4455%3A547%3Af900%3Ab9be%3A64a6%3Af0e4%3Adb8b&id=o-ACq02htGfV_-AFdoDZYwsuN_IGzXRYVZK5e_Mvl6m2kY&itag=248&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AQmm2eyxFfREPdcf1XDpgoDKiuQMRcRkm_Z6TrdVsSok98kVXfMfqw4F1T7TMp58RfxdOMPstsQWkomD&spc=Mv1m9hQ0b1yReaf_FOiSvF448BP9p9hYPEyeGit4FSEqhCjGkLuk&vprv=1&svpuc=1&mime=video%2Fwebm&ns=Rpz661rHm9MuU_mZIXU8D24Q&rqh=1&gir=yes&clen=7363026&dur=24.240&lmt=1702288850832264&keepalive=yes&c=WEB_CREATOR&sefc=1&txp=530F224&n=ZS7r6YQaqV008A&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAMxUbvOzC4cXk_Ibap9tv0T-_MHPWFvX36VoTfdgI9H8AiBtyvkez4qnfOnL1M8_c4z-r5mmwTIF1mJKsNMcTf3MGw%3D%3D&rm=sn-2aqu-jbts7s,sn-2aqu-hoaes7l&rrc=79,79,80&fexp=24350516,24350517,24350557,24350561&req_id=8715054b757ca3ee&cmsv=e&redirect_counter=3&cm2rm=sn-hoae7l&cms_redirect=yes&mh=Et&mip=175.101.94.8&mm=34&mn=sn-npoe7nsy&ms=ltu&mt=1723659173&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRQIgdkRbAx5lF8nFptYJ_wNShMD8RnGwh-WcBlM8SJZotKcCIQC5Tj3T9yEItfpzxv61G_rL9Zf0o-EMTbHdIckZuZKi0Q%3D%3D"
             />
             <Heading size="lg" mb={6} textAlign="center" color="white" textShadow="2px 2px 8px rgba(0, 0, 0, 0.8)">
                 Live Cricket Scores
@@ -131,7 +131,7 @@ export const Livescore = () => {
                     boxShadow="0 4px 12px rgba(1, 0, 0, 0.3)"
                     transition="all 0.3s ease"
                 >
-                    Player Details
+                    Players Details
                 </Button>
             </Link>
         </Box>

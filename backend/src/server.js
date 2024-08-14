@@ -56,7 +56,7 @@ app.post('/signup', async(req, res) => {
 })
 
 app.post('/findmany', async(req, res) => {
-    await db.collection("details").find().toArray()
+    await db.collection("details2").find().toArray()
     .then((result)=>{
         res.json(result)
     })
