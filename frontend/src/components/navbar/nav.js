@@ -51,7 +51,7 @@ export const Navbar = () => {
                 />
                 <HStack spacing={8} alignItems={'center'}>
                     <Box fontWeight="bold" fontSize="lg" color={linkColor}>
-                        Cricket Match Management
+                        SRKR CRICKET CLUB
                     </Box>
                     <HStack
                         as={'nav'}

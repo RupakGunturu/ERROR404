@@ -9,7 +9,7 @@ export const AdminLogin = () => {
     const nav = useNavigate();
 
     const Adminlogin = async () => {
-        if (username === 'admin' && password === 'admin') {
+        if (username === 'ERROR404' && password === 'admin') {
             sessionStorage.setItem('isAdminAuthenticated', 'true');
             nav('/admin-dashboard');
         } else {
@@ -21,7 +21,7 @@ export const AdminLogin = () => {
         <>
         <Navbar/>
         <Box
-            height="80vh"
+            height="85vh"
             display="flex"
             alignItems="center"
             justifyContent="center"

@@ -65,7 +65,7 @@ app.post('/findmany', async(req, res) => {
 
 let matches = {
     match1: { match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
-    match2: { match: "IT techies vs Royal civil ", runs: 0, wickets: 0, overs: 0.0 }
+    match2: { match: "IT Techies vs Royal Civils ", runs: 0, wickets: 0, overs: 0.0 }
   };
 
   app.get('/livescore', (req, res) => {
@@ -95,6 +95,14 @@ let matches = {
   
     res.json({ message: 'Score updated successfully', match: matches[matchId] });
   });
+
+//   app.post('/updateone', async(req, res) => {
+//     await db.collection("ast").findOneAndUpdate({Name:req.body.},{$set:{Age:20}})
+//     .then((result)=>{
+//         res.json(result)
+//     })
+//     .catch((e)=>console.log(e))
+// })
 
 connectToDB(() => {
     app.listen(9000, () => {
