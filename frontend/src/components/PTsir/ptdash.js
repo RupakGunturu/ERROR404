@@ -10,6 +10,10 @@ export const PTdashboard = () => {
         nav('/slot-booking');
     };
 
+    const notifications=()=>{
+        alert("16th Aug morning session Is BOOKED")
+    }
+
     return (
         <>
         <Navbar/>
@@ -54,6 +58,22 @@ export const PTdashboard = () => {
                         _active={{ bg: "red.800" }}
                     >
                         Update Slots
+                    </Button>
+                </SimpleGrid>
+                <br/>
+                <SimpleGrid columns={1} spacing={8}>
+                    {/* <Button colorScheme="teal" size="lg" onClick={handleScheduleMatches}>
+                        Schedule Matches
+                    </Button> */}
+                    <Button 
+                        colorScheme="red" 
+                        size="lg" 
+                        onClick={notifications}
+                        bg="red.600"
+                        _hover={{ bg: "red.700" }}
+                        _active={{ bg: "red.800" }}
+                    >
+                        Notifications
                     </Button>
                 </SimpleGrid>
             </Box>

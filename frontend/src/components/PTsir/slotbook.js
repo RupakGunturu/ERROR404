@@ -42,8 +42,8 @@ export const SlotBook = () => {
     <Flex
       height="100vh"
       width="100vw"
-      bg="url('https://img.freepik.com/free-vector/t20-world-cup-cricket-championship-poster-template-brochure-decorated-flyer-banner-design_460848-15769.jpg?t=st=1723570203~exp=1723573803~hmac=bd073a380bfae9d9d328d88a2686bc8039b4c67b0ad9ad39bedf79c708c3fc8e&w=900')"
-      bgSize="cover"
+      bg="url('https://i.postimg.cc/tgND18Vt/t20.jpg')"
+      bgSize="fixed"
       bgPosition="center"
       alignItems="center"
       justifyContent="center"
@@ -82,6 +82,8 @@ export const SlotBook = () => {
             >
               <option value="match1" style={{ backgroundColor: '#1A202C', color: 'white' }}>15 Aug Morning session</option>
               <option value="match2" style={{ backgroundColor: '#1A202C', color: 'white' }}>15 Aug Evening session</option>
+              <option value="match3" style={{ backgroundColor: '#1A202C', color: 'white' }}>16 Aug Morning session</option>
+              <option value="match1" style={{ backgroundColor: '#1A202C', color: 'white' }}>16 Aug Evening session</option>
             </Select>
           </FormControl>
           <Button

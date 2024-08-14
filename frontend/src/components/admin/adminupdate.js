@@ -25,8 +25,7 @@ export const AdminUpdate = () => {
         <Flex
             height="100vh"
             width="100vw"
-            bg="url('https://img.freepik.com/free-vector/t20-world-cup-cricket-championship-poster-template-brochure-decorated-flyer-banner-design_460848-15769.jpg?t=st=1723570203~exp=1723573803~hmac=bd073a380bfae9d9d328d88a2686bc8039b4c67b0ad9ad39bedf79c708c3fc8e&w=900')" // Replace with your background image URL
-            bgSize="cover"
+            bg="url('https://i.postimg.cc/tgND18Vt/t20.jpg')"
             bgPosition="center"
             alignItems="center"
             justifyContent="center"

@@ -45,7 +45,7 @@ export const Navbar = () => {
                     aria-label={'Open Menu'}
                     display={{ md: 'none' }}
                     onClick={isOpen ? onClose : onOpen}
-                    bg="teal.500"
+                    bg="#FFFFFF"
                     _hover={{ bg: 'teal.600' }}
                     color="white"
                 />
@@ -64,12 +64,12 @@ export const Navbar = () => {
                         </Link>
                         <Link as={RouterLink} to="/signin" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
-                            Sign In
+                            Slot Booking
                         </Link>
-                        <Link as={RouterLink} to="/signup" px={4} py={2} rounded={'md'}
+                        {/* <Link as={RouterLink} to="/signup" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Sign Up
-                        </Link>
+                        </Link> */}
                         {/* <Link as={RouterLink} to="/dashboard" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Dashboard

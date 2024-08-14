@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 export const Livescore = () => {
     const [scores, setScores] = useState([]);
+    const [completedMatches, setCompletedMatches] = useState([]);
 
     useEffect(() => {
         const fetchScores = () => {
-            const matchIds = ['match1', 'match2']; 
+            const matchIds = ['match1', 'match2'];
             const scoreRequests = matchIds.map(id => axios.get(`${api}/livescore?matchId=${id}`));
             
             Promise.all(scoreRequests)
@@ -26,6 +27,15 @@ export const Livescore = () => {
         return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        const completed = [
+            { team1: "CIC Hackers", team2: "Mech Robots", score: "150/7 (20.0 overs)", result: "CIC Hackers won by 3 wickets" },
+            { team1: "CSE Coders", team2: "EEE Rockers", score: "180/6 (20.0 overs)", result: "EEE Rockers won by 4 wickets" },
+            { team1: "Royal Civil", team2: "IT Rogers", score: "140/9 (20.0 overs)", result: "Royal Civil won by 1 wicket" }
+        ];
+        setCompletedMatches(completed);
+    }, []);
+
     return (
         <Box
             minH="100vh"
@@ -36,58 +46,79 @@ export const Livescore = () => {
             alignItems="center"
             justifyContent="center"
             color="white"
+            overflow="hidden"
         >
-            <Box
-            as="video"
-            src="anim.mp4"
-                // src="https://rr3---sn-h557sn66.googlevideo.com/videoplayback?expire=1723653464&ei=-Ii8ZtG5DojrrtoP7-WcsQs&ip=180.248.47.213&id=o-ACIYIjF4wKrnYxek3o7XF-AITD6NOktBHbayewhJAm1f&itag=244&aitags=133%2C134%2C135%2C160%2C242%2C243%2C244%2C278%2C394%2C395%2C396%2C397&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AQmm2ey2Y8m7kOfQZ1j6zfXumRdItQjQaooRXnoPjoBwTOhygDYqSqMoftsWAjfD3awaJnNPr9JqV9_k&spc=Mv1m9hjinzSyESqemSmGS_yn3KbT7Itat-ZYNMlA3lCk63qcLWobJs6_Wwx1&vprv=1&svpuc=1&mime=video%2Fwebm&ns=YAwcdgJvOu5CBz1s8M69WuEQ&rqh=1&gir=yes&clen=2742936&dur=30.080&lmt=1506784732660715&keepalive=yes&c=WEB&sefc=1&n=nak5R7FHf9G2lw&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgMrMJ5TCcmjhxeOiSmyLu1RcLHCKtgtKNqOVQLhxjwisCIQDzsUxJVCG0HOVYxUUZJKo-gmr57S1LLchsHa7sI2AIPQ%3D%3D&rm=sn-2uuxa3vh-habl7e,sn-nposd7s&rrc=79,104&fexp=24350516,24350517,24350557,24350561&req_id=bcc78649b221a3ee&redirect_counter=2&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=ep&mip=175.101.94.8&mm=29&mn=sn-h557sn66&ms=rdu&mt=1723637111&mv=m&mvi=3&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRgIhAN6PL4aw5j2la6JtaVhtS0-1DKfQHMl3LknG5QqWeag9AiEA2SM8EpUc9bmfylpp8dflqsAYfbDDXxlfW1FHW9dX3ko%3D"
-                // src="c:\Users\Pavan Kumar\Desktop\pkp\newpro\ERROR404\in-y2mate.com - TCL T20 Title Animation_v720P.mp4"
-                // src="https://www.youtube.com/embed/bkzKE0zTExU?si=-alQPZtOHC9T5nxB"
-                // src="https://rr3---sn-h5576nsk.googlevideo.com/videoplayback?expire=1723634532&ei=BD-8ZrX2Hdqd4t4P85Oh2AQ&ip=115.98.181.26&id=o-ALzew20ovKT9kjaJ2K62UTxrznz31Y_TCqNzBUsPpyt3&itag=137&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&pcm2=no&bui=AQmm2exzNkcg403qsUBF9KEyfLtjakwVI4YFpCoh5zHwY85eYTxYCSGRROieVNV9igc3k9QZllDUh5gk&spc=Mv1m9hQveVwZ18SrU40rfX6UKcKjaFekpVnTWwPZDaLTUkZEYesx_GBRP3DJ&vprv=1&svpuc=1&mime=video%2Fmp4&ns=Eoa6RdalvbZ9R1VY2XQKmDkQ&rqh=1&gir=yes&clen=10340303&otfp=1&dur=26.499&lmt=1706939437345969&keepalive=yes&c=WEB&sefc=1&txp=5311224&n=A1dvl6szDDBz3w&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cotfp%2Cdur%2Clmt&sig=AJfQdSswRQIgavv7vo9j99_kBe_HnPcQfOv72j18O1rT_ms3slXTG1QCIQCAkdwjeuQT2V89lExgU0_CkCehbdU-whRq9Yp7LcSclA%3D%3D&rm=sn-i5uif5t-itqd7e,sn-gwpa-jwce7r,sn-h55se7s&rrc=79,79,104&fexp=24350516,24350517,24350557,24350561&req_id=3cb2dfd39345a3ee&redirect_counter=3&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=3Y&mip=2401:4900:6599:33bd:2817:f795:5fe2:7fdc&mm=30&mn=sn-h5576nsk&ms=nxu&mt=1723614276&mv=m&mvi=3&pl=48&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRQIhAKGqkQTMgoAgy6Y5UPKK5K8YjMKCljgXIBRYis0t7hyyAiBWReuHyEpyQgmYQGB8SdASSbHryNd_EToP8as_DObFiQ%3D%3D"
+            <video
                 autoPlay
                 loop
                 muted
-                position="absolute"
-                top="0"
-                left="0"
-                width="100%"
-                height="100%"
-                objectFit="cover"
-                zIndex="-1"
+                playsInline
+                style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: '-1',
+                }}
+                src="https://rr3---sn-h557snzr.googlevideo.com/videoplayback?expire=1723657878&ei=Npq8ZraEN9a0obIP7-ehyAg&ip=181.188.162.116&id=o-AN0RFaccDvwpeedHyCNZEj9otmePh1cqUHG-fJC8NXzK&itag=248&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AQmm2eweVnqNz2keeXH8mqp1FTThk5sXOd5QOLFfWxqtiKO5hfUgntUOBuWkSk5D6Jh-8bNmHRARnm10&spc=Mv1m9gxUfkrntxqGs39bTrZGZp98CUxV52WI5ISzmGmQD2RQcF8N&vprv=1&svpuc=1&mime=video%2Fwebm&ns=7RrimcI6wrqS-nxrdFCrZogQ&rqh=1&gir=yes&clen=7363026&dur=24.240&lmt=1702288850832264&keepalive=yes&c=WEB_CREATOR&sefc=1&txp=530F224&n=FZw0iI2q5beNaA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhAO7KV0tqtdBtDkPa54cDe9uJCW9y3htNZXB4YfXy8k8XAiA8AZ8G0en79shp0D_7MluHSEpPWSUSaYrii2OgZRjkXw%3D%3D&rm=sn-upbvcv-88pl76,sn-bg0ees7s&rrc=79,104&fexp=24350516,24350518,24350556,24350561&req_id=d7ac61e711d9a3ee&cmsv=e&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=Et&mip=175.101.94.8&mm=29&mn=sn-h557snzr&ms=rdu&mt=1723648877&mv=m&mvi=3&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRQIgNSEZX_Qx95hGQHExbCN6N2OV3Y1-ey_PcKeqD_DAhn0CIQCvE9RbhJSOijjyzCOaHzL05mNgkTWvvBOvr9eOxygnGA%3D%3D"
             />
-
-            {/* Content */}
             <Heading size="lg" mb={6} textAlign="center" color="white" textShadow="2px 2px 8px rgba(0, 0, 0, 0.8)">
                 Live Cricket Scores
             </Heading>
 
-            <Flex direction="row" align="center" justify="center" w="100%" maxW="lg" gap={6}>
-                {scores.length > 0 ? (
-                    scores.map((score, index) => (
+            <Flex direction="row" align="flex-start" w="100%" maxW="4xl" gap={6}>
+                <Box flex="2" p={4} bg="rgba(0, 0, 0, 0.6)" borderRadius="lg" boxShadow="lg">
+                    {scores.length > 0 ? (
+                        scores.map((score, index) => (
+                            <Box
+                                key={index}
+                                w="100%"
+                                p={4}
+                                borderRadius="lg"
+                                boxShadow="lg"
+                                bg="rgba(0, 0, 0, 0.7)"
+                                textAlign="center"
+                                mb={4}
+                            >
+                                <Text fontSize="xl" fontWeight="bold">
+                                    Match {index + 1}
+                                </Text>
+                                
+                                <Text fontSize="2xl" fontWeight="bold" color="yellow.300" mt={2}>
+                                    {score.runs}/{score.wickets} in {score.overs} overs
+                                </Text>
+                                <Text fontSize="md" mt={2}>
+                                    {score.commentary}
+                                </Text>
+                            </Box>
+                        ))
+                    ) : (
+                        <Spinner size="xl" color="yellow.400" />
+                    )}
+                </Box>
+                <Box flex="1" p={4} bg="rgba(0, 0, 0, 0.6)" borderRadius="lg" boxShadow="lg">
+                    <Heading size="md" color="white" mb={4}>
+                        Completed Matches
+                    </Heading>
+                    {completedMatches.map((match, index) => (
                         <Box
                             key={index}
-                            w="100%"
+                            mb={4}
                             p={4}
-                            borderRadius="lg"
-                            boxShadow="lg"
-                            bg="rgba(0, 0, 0, 0.7)"
+                            borderRadius="md"
+                            bg="rgba(255, 255, 255, 0.1)"
                             textAlign="center"
                         >
-                            <Text fontSize="xl" fontWeight="bold">
-                                Match {index + 1}
-                            </Text>
-                            <Text fontSize="2xl" fontWeight="bold" color="yellow.300" mt={2}>
-                                {score.runs}/{score.wickets} in {score.overs} overs
-                            </Text>
-                            <Text fontSize="md" mt={2}>
-                                {score.commentary}
-                            </Text>
+                            <Text fontWeight="bold" fontSize="lg">{match.team1} vs {match.team2}</Text>
+                            <Text color="yellow.300" fontSize="md">{match.score}</Text>
+                            <Text fontSize="sm">{match.result}</Text>
                         </Box>
-                    ))
-                ) : (
-                    <Spinner size="xl" color="yellow.400" />
-                )}
+                    ))}
+                </Box>
             </Flex>
+
             <Link to={'/player-info'} style={{ marginTop: '20px' }}>
                 <Button
                     colorScheme="green"

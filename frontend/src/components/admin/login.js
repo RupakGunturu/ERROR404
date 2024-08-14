@@ -36,8 +36,8 @@ export const AdminLogin = () => {
                 mx="auto"
                 borderRadius="x1"
                 boxShadow="lg"
-                bg="rgba(855, 855, 855, 0.5)" // Slightly more opaque background for readability
-                // backdropFilter="blur(0px)" // Frosted glass effect
+                bg="rgba(855, 855, 855, 0.5)" 
+                // backdropFilter="blur(0px)"
                 textAlign="center"
             >
                 <Heading 

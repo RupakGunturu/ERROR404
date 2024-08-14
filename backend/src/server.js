@@ -150,6 +150,14 @@ app.post('/slot', async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+app.post('/insertmany', async(req, res) => {
+  await db.collection("details2").insertMany(req.body)
+  .then((result)=>{
+      res.json(result)
+  })
+  .catch((e)=>console.log(e))
+})
   
 
 connectToDB(() => {
