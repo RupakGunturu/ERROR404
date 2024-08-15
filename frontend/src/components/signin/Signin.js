@@ -27,8 +27,8 @@ export const SignIn = () => {
               if (res.data.message) {
                   console.log(res?.data?.values);
                   alert(res.data.message);
-                  sessionStorage.setItem('SlothAuth', 'true');
-                  nav('/slot-booking');
+                  // sessionStorage.setItem('SlothAuth', 'true');
+                  // nav('/slot-booking');
               } else {
                   alert(res.data.error);
                   nav('/signup');

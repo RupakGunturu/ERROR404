@@ -46,7 +46,7 @@ export const AdminLogin = () => {
                     // textShadow="1px 1px 2px rgba(0, 0, 0, 0.8)"
                     font-family={"serif"}
                 >
-                    Admin Login
+                    Scorer Login
                 </Heading>
                 <FormControl mb={4}>
                     <FormLabel color="blue.800">Username</FormLabel>

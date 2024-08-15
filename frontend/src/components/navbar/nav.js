@@ -80,7 +80,7 @@ export const Navbar = () => {
                         </Link>
                         <Link as={RouterLink} to="/admin" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
-                            Admin Login
+                            Scorer Login
                         </Link>
                         <Link as={RouterLink} to="/Dept-login" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>

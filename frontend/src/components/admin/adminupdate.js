@@ -37,11 +37,11 @@ export const AdminUpdate = () => {
                 p={8}
                 borderRadius="lg"
                 boxShadow="2xl"
-                bg="rgba(0, 0, 0, 0.8)" // Darker background for a cool effect
-                color="white" // White text color for contrast
-                backdropFilter="blur(10px)" // Frosted glass effect
+                bg="rgba(0, 0, 0, 0.8)"
+                color="white" 
+                backdropFilter="blur(10px)" 
             >
-                <Box bg="rgba(0, 0, 0, 0.6)" p={6} borderRadius="lg"> {/* Inner box with semi-transparent overlay */}
+                <Box bg="rgba(0, 0, 0, 0.6)" p={6} borderRadius="lg"> 
                     <Heading 
                         mb={6} 
                         textAlign="center" 

@@ -133,22 +133,23 @@ let matches = {
 //   }
 // });
 
-app.post('/slot', async (req, res) => {
-  try {
-    const matchid = req.body.matchid;
-    const existingSlot = await db.collection('slot').findOne({ matchid });
-    if (existingSlot) {
-      return res.json({ message: "Match Already Booked" });
-    }
+app.get('/slots', (req, res) => {
+  const updatedSlots = slots.map(slot => ({
+    ...slot,
+    booked: !!bookedSlots[slot.id],
+  }));
+  res.json(updatedSlots);
+});
 
-    const result = await db.collection('slot').insertOne({ matchid });
-    if (result) {
-      return res.json({ message: "Match Booked", values: result });
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+app.post('/slot', (req, res) => {
+  const { matchid } = req.body;
+
+  if (bookedSlots[matchid]) {
+    return res.json({ message: "Match Already Booked" });
   }
+
+  bookedSlots[matchid] = true;
+  return res.json({ message: "Match Booked" });
 });
 
 app.post('/insertmany', async(req, res) => {
@@ -158,6 +159,26 @@ app.post('/insertmany', async(req, res) => {
   })
   .catch((e)=>console.log(e))
 })
+
+let bookedSlots = {}; 
+
+const slots = [
+  { id: 'match1', name: '15 Aug Morning session', booked: false },
+  { id: 'match2', name: '15 Aug Evening session', booked: false },
+  { id: 'match3', name: '16 Aug Morning session', booked: false },
+  { id: 'match4', name: '16 Aug Evening session', booked: false },
+];
+
+app.delete('/slot', (req, res) => {
+  const { matchid } = req.body;
+
+  if (!bookedSlots[matchid]) {
+    return res.json({ message: "Match Not Found" });
+  }
+
+  delete bookedSlots[matchid];
+  return res.json({ message: "Match Deleted" });
+});
   
 
 connectToDB(() => {

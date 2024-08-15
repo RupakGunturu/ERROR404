@@ -39,7 +39,7 @@ export const AdminDashboard = () => {
                     color="red.500" 
                     // textShadow="2px 2px 8px rgba(0, 0, 0, 0.8)"
                 >
-                    Admin Dashboard
+                    Scorer Dashboard
                 </Heading>
                 <SimpleGrid columns={1} spacing={8}>
                     {/* <Button colorScheme="teal" size="lg" onClick={handleScheduleMatches}>
