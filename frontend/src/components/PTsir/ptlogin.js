@@ -10,7 +10,7 @@ export const PTsirLogin = () => {
 
     const PTlogin = async () => {
         if (username === 'PTSIR' && password === '123') {
-            sessionStorage.setItem('isAdminAuthenticated', 'true');
+            sessionStorage.setItem('PTath', 'true');
             nav('/PTdash');
         } else {
             alert('Invalid username or password');
@@ -46,7 +46,7 @@ export const PTsirLogin = () => {
                     // textShadow="1px 1px 2px rgba(0, 0, 0, 0.8)"
                     font-family={"serif"}
                 >
-                    PT Login
+                    PET Login
                 </Heading>
                 <FormControl mb={4}>
                     <FormLabel color="blue.800">Username</FormLabel>

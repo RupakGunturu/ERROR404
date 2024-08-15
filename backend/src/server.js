@@ -162,6 +162,8 @@ app.post('/insertmany', async(req, res) => {
 
 let bookedSlots = {}; 
 
+
+
 const slots = [
   { id: 'match1', name: '15 Aug Morning session', booked: false },
   { id: 'match2', name: '15 Aug Evening session', booked: false },

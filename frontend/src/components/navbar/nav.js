@@ -62,14 +62,14 @@ export const Navbar = () => {
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Home
                         </Link>
-                        <Link as={RouterLink} to="/signin" px={4} py={2} rounded={'md'}
+                        <Link as={RouterLink} to="/Dept-login" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Slot Booking
                         </Link>
-                        {/* <Link as={RouterLink} to="/signup" px={4} py={2} rounded={'md'}
+                        <Link as={RouterLink} to="/signup" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Sign Up
-                        </Link> */}
+                        </Link>
                         {/* <Link as={RouterLink} to="/dashboard" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
                             Dashboard
@@ -84,7 +84,7 @@ export const Navbar = () => {
                         </Link>
                         <Link as={RouterLink} to="/Dept-login" px={4} py={2} rounded={'md'}
                             _hover={{ textDecoration: 'none', bg: linkHoverBg, color: 'teal.800' }}>
-                            PT SIR Login
+                            PET Login
                         </Link>
                     </HStack>
                 </HStack>

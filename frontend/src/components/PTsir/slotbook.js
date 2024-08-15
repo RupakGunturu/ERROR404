@@ -38,7 +38,6 @@ export const SlotBook = () => {
           duration: 5000,
           isClosable: true,
         });
-        // Refresh the slot data after booking
         setSlots(prevSlots => prevSlots.map(slot =>
           slot.id === matchid ? { ...slot, booked: true } : slot
         ));
@@ -73,7 +72,6 @@ export const SlotBook = () => {
           duration: 5000,
           isClosable: true,
         });
-        // Refresh the slot data after cancellation
         setSlots(prevSlots => prevSlots.map(slot =>
           slot.id === matchid ? { ...slot, booked: false } : slot
         ));

@@ -31,7 +31,6 @@ export const AdminDashboard = () => {
                 boxShadow="2xl"
                 bg="rgba(0, 0, 0, 0.5)"
                 color="white" 
-                // backdropFilter="blur(10px)"
             >
                 <Heading 
                     mb={6} 
