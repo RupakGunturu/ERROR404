@@ -94,7 +94,7 @@ export const SignUp = () => {
                 </FormControl>
       
                 <FormControl marginBottom="15px">
-                  <FormLabel>Redgno</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <Input type='text' placeholder="Enter your name" onChange={(e) => setRegister(e.target.value)} style={{
                     borderRadius: '10px',
                     padding: '10px',

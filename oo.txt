@@ -1,0 +1,387 @@
+[
+{
+"PlayerName" : "shastri",
+"Team": "IT",
+"Runs" : "2443",
+"Wickets" : "05",
+"Average" : "29.9",
+"Strike rate" : "100.66"
+},
+{
+"PlayerName" : "riyan",
+"Team": "IT",
+"Runs" : "2783",
+"Wickets" : "14",
+"Average" : "31.9",
+"Strike rate" : "121.7"
+},
+{
+"PlayerName" : "ravi",
+"Team": "IT",
+"Runs" : "5678",
+"Wickets" : "44",
+"Average" : "66.9",
+"Strike rate" : "195.7"
+},
+{
+"PlayerName" : "raja",
+"Team": "IT",
+"Runs" : "8567",
+"Wickets" : "05",
+"Average" : "76.8",
+"Strike rate" : "167.66"
+},
+{
+"PlayerName" : "hari",
+"Team": "IT",
+"Runs" : "4567",
+"Wickets" : "05",
+"Average" : "49.9",
+"Strike rate" : "158.96"
+},
+{
+"PlayerName" : "ragadeep",
+"Team": "IT",
+"Runs" : "4567",
+"Wickets" : "14",
+"Average" : "31.9",
+"Strike rate" : "127.0"
+},
+{
+"PlayerName" : "rakesh",
+"Team": "IT",
+"Runs" : "5567",
+"Wickets" : "44",
+"Average" : "63.9",
+"Strike rate" : "158.7"
+},
+{
+"PlayerName" : "manoj",
+"Team": "IT",
+"Runs" : "4567",
+"Wickets" : "05",
+"Average" : "36.8",
+"Strike rate" : "146.6"
+},
+{
+"PlayerName" : "bobby",
+"Team": "IT",
+"Runs" : "5423",
+"Wickets" : "05",
+"Average" : "28.9",
+"Strike rate" : "121.06"
+},
+{
+"PlayerName" : "balu",
+"Team": "IT",
+"Runs" : "7876",
+"Wickets" : "14",
+"Average" : "48.9",
+"Strike rate" : "134.0"
+},
+{
+"PlayerName" : "rajesh",
+"Team": "IT",
+"Runs" : "5999",
+"Wickets" : "44",
+"Average" : "43.9",
+"Strike rate" : "148.5"
+},
+{
+"PlayerName" : "manu",
+"Team": "IT",
+"Runs" : "8456",
+"Wickets" : "05",
+"Average" : "36.8",
+"Strike rate" : "186.6"
+},
+{
+"PlayerName" : "Rupak",
+"Team": "CIC",
+"Runs" : "9998",
+"Wickets" : "95",
+"Average" : "89.9",
+"Strike rate" : "190.66"
+},
+{
+"PlayerName" : "pavan",
+"Team": "CIC",
+"Runs" : "4779",
+"Wickets" : "45",
+"Average" : "45.45",
+"Strike rate" : "179.79"
+},
+{
+"PlayerName" : "murthy",
+"Team": "CIC",
+"Runs" : "9999",
+"Wickets" : "88",
+"Average" : "88.8",
+"Strike rate" : "213.5"
+},
+{
+"PlayerName" : "mahendra",
+"Team": "CIC",
+"Runs" : "8567",
+"Wickets" : "22",
+"Average" : "76.8",
+"Strike rate" : "122.22"
+},
+{
+"PlayerName" : "harish",
+"Team": "CIC",
+"Runs" : "4667",
+"Wickets" : "15",
+"Average" : "49.3",
+"Strike rate" : "148.96"
+},
+{
+"PlayerName" : "ramu",
+"Team": "CIC",
+"Runs" : "5567",
+"Wickets" : "23",
+"Average" : "41.9",
+"Strike rate" : "129.0"
+},
+{
+"PlayerName" : " uday",
+"Team": "CIC",
+"Runs" : "5767",
+"Wickets" : "34",
+"Average" : "53.9",
+"Strike rate" : "158.8"
+},
+{
+"PlayerName" : "arjun",
+"Team": "CIC",
+"Runs" : "6567",
+"Wickets" : "25",
+"Average" : "34.8",
+"Strike rate" : "136.6"
+},
+{
+"PlayerName" : "SAI",
+"Team": "CIC",
+"Runs" : "5453",
+"Wickets" : "07",
+"Average" : "29.9",
+"Strike rate" : "151.06"
+},
+{
+"PlayerName" : "bhanu",
+"Team": "CIC",
+"Runs" : "7876",
+"Wickets" : "17",
+"Average" : "38.9",
+"Strike rate" : "124.0"
+},
+{
+"PlayerName" : "vinay",
+"Team": "CIC",
+"Runs" : "5969",
+"Wickets" : "44",
+"Average" : "46.9",
+"Strike rate" : "138.5"
+},
+{
+"PlayerName" : "mahesh",
+"Team": "CIC",
+"Runs" : "8756",
+"Wickets" : "05",
+"Average" : "36.8",
+"Strike rate" : "186.6"
+},
+
+{
+"PlayerName" : "khan",
+"Team": "CSE",
+"Runs" : "2443",
+"Wickets" : "05",
+"Average" : "29.9",
+"Strike rate" : "100.66"
+},
+{
+"PlayerName" : "rashid",
+"Team": "CSE",
+"Runs" : "600",
+"Wickets" : "10",
+"Average" : "11.9",
+"Strike rate" : "101.7"
+},
+{
+"PlayerName" : "praneeth",
+"Team": "CSE",
+"Runs" : "567",
+"Wickets" : "12.3",
+"Average" : "16.9",
+"Strike rate" : "105.7"
+},
+{
+"PlayerName" : "rohan",
+"Team": "CSE",
+"Runs" : "8567",
+"Wickets" : "05",
+"Average" : "76.8",
+"Strike rate" : "167.66"
+},
+{
+"PlayerName" : "madhan",
+"Team": "CSE",
+"Runs" : "4167",
+"Wickets" : "15",
+"Average" : "39.9",
+"Strike rate" : "148.96"
+},
+{
+"PlayerName" : "virat",
+"Team": "CSE",
+"Runs" : "9567",
+"Wickets" : "14",
+"Average" : "81.9",
+"Strike rate" : "197.0"
+},
+{
+"PlayerName" : "rohit",
+"Team": "IT",
+"Runs" : "9999",
+"Wickets" : "98",
+"Average" : "99.9",
+"Strike rate" : "258.7"
+},
+{
+"PlayerName" : "dev",
+"Team": "CSE",
+"Runs" : "2567",
+"Wickets" : "05",
+"Average" : "36.8",
+"Strike rate" : "146.6"
+},
+{
+"PlayerName" : "david",
+"Team": "CSE",
+"Runs" : "5423",
+"Wickets" : "05",
+"Average" : "28.9",
+"Strike rate" : "161.06"
+},
+{
+"PlayerName" : "shekar",
+"Team": "CSE",
+"Runs" : "5876",
+"Wickets" : "14",
+"Average" : "41.9",
+"Strike rate" : "124.0"
+},
+{
+"PlayerName" : "ajay",
+"Team": "CSE",
+"Runs" : "5999",
+"Wickets" : "49",
+"Average" : "33.9",
+"Strike rate" : "168.5"
+},
+{
+"PlayerName" : "yash",
+"Team": "CSE",
+"Runs" : "8456",
+"Wickets" : "05",
+"Average" : "36.8",
+"Strike rate" : "136.6"
+},
+{
+"PlayerName" : "vaishnav",
+"Team": "EEE",
+"Runs" : "978",
+"Wickets" : "95",
+"Average" : "19.9",
+"Strike rate" : "150.66"
+},
+{
+"PlayerName" : "vishnu",
+"Team": "EEE",
+"Runs" : "4767",
+"Wickets" : "44",
+"Average" : "43",
+"Strike rate" : "129.79"
+},
+{
+"PlayerName" : "reddy",
+"Team": "EEE",
+"Runs" : "6999",
+"Wickets" : "88",
+"Average" : "48.8",
+"Strike rate" : "143.5"
+},
+{
+"PlayerName" : "manish",
+"Team": "EEE",
+"Runs" : "7567",
+"Wickets" : "22",
+"Average" : "76.8",
+"Strike rate" : "122.22"
+},
+{
+"PlayerName" : "kumar",
+"Team": "EEE",
+"Runs" : "5667",
+"Wickets" : "19",
+"Average" : "49.3",
+"Strike rate" : "148.96"
+},
+{
+"PlayerName" : "sudharshan",
+"Team": "EEE",
+"Runs" : "3567",
+"Wickets" : "33",
+"Average" : "41.9",
+"Strike rate" : "129.0"
+},
+{
+"PlayerName" : " abhay",
+"Team": "EEE",
+"Runs" : "5967",
+"Wickets" : "34",
+"Average" : "53.9",
+"Strike rate" : "158.8"
+},
+{
+"PlayerName" : "siddhu",
+"Team": "EEE",
+"Runs" : "5567",
+"Wickets" : "25",
+"Average" : "34.8",
+"Strike rate" : "136.6"
+},
+{
+"PlayerName" : "srinu",
+"Team": "EEE",
+"Runs" : "5443",
+"Wickets" : "57",
+"Average" : "29.9",
+"Strike rate" : "151.06"
+},
+{
+"PlayerName" : "vasu",
+"Team": "EEE",
+"Runs" : "7896",
+"Wickets" : "27",
+"Average" : "28.9",
+"Strike rate" : "124.0"
+},
+{
+"PlayerName" : "vijay",
+"Team": "EEE",
+"Runs" : "5999",
+"Wickets" : "42",
+"Average" : "46.3",
+"Strike rate" : "138.5"
+},
+{
+"PlayerName" : "naresh",
+"Team": "EEE",
+"Runs" : "6756",
+"Wickets" : "25",
+"Average" : "36.9",
+"Strike rate" : "146.6"
+}
+]
