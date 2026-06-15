@@ -1,1 +1,2 @@
-export const api="http://localhost:9000"
+const isProduction = process.env.NODE_ENV === 'production';
+export const api = isProduction ? 'https://error404cm.onrender.com' : 'http://localhost:9000';

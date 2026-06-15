@@ -80,100 +80,6 @@ app.post('/findmany', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
-let matches = {
-    match1: { team1: "CIC Hackers", team2: "ECE Rockers", match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
-    match2: { team1: "IT Techies", team2: "Royal Civils", match: "IT Techies vs Royal Civils", runs: 0, wickets: 0, overs: 0.0 }
-  };
-
-  app.get('/livescore', (req, res) => {
-    const matchId = req.query.matchId || 'match1';
-    const match = matches[matchId];
-    
-    if (match) {
-      res.json(match);
-    } else {
-      res.status(404).json({ error: 'Match not found' });
-    }
-  });
-
-  app.post('/score', (req, res) => {
-    const { matchId, runs, wickets, overs, team1Name, team2Name } = req.body;
-  
-    if (!matches[matchId]) {
-      return res.status(404).json({ error: 'Match not found' });
-    }
-  
-    const t1 = team1Name || matches[matchId].team1;
-    const t2 = team2Name || matches[matchId].team2;
-
-    matches[matchId] = {
-      team1: t1,
-      team2: t2,
-      match: t1 + " vs " + t2,
-      runs: runs !== undefined && runs !== '' ? parseInt(runs) : matches[matchId].runs,
-      wickets: wickets !== undefined && wickets !== '' ? parseInt(wickets) : matches[matchId].wickets,
-      overs: overs !== undefined && overs !== '' ? parseFloat(overs) : matches[matchId].overs
-    };
-  
-    res.json({ message: 'Score updated successfully', match: matches[matchId] });
-  });
-
-//   app.post('/updateone', async(req, res) => {
-//     await db.collection("ast").findOneAndUpdate({Name:req.body.Gmail},{$set:{Password:req.body,Password}})
-//     .then((result)=>{
-//         res.json({message: 'updated successfully',values:result});
-//     })
-//     .catch((e)=>console.log(e))
-// })
-
-// app.get('/slots', async (req, res) => {
-//   try {
-//     const slots = await db.collection('slots').find().toArray();
-//     res.json(slots);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Error fetching slots', error });
-//   }
-// });
-
-// app.put('/slots/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const { booked } = req.body;
-
-//   try {
-//     const result = await db.collection('slots').updateOne(
-//       { _id: new ObjectId(id) },
-//       { $set: { booked: booked } }
-//     );
-
-//     if (result.matchedCount === 0) {
-//       return res.status(404).json({ message: 'Slot not found' });
-//     }
-
-//     res.json({ message: 'Slot updated successfully' });
-//   } catch (error) {
-//     res.status(500).json({ message: 'Error updating slot', error });
-//   }
-// });
-
-app.get('/slots', (req, res) => {
-  const updatedSlots = slots.map(slot => ({
-    ...slot,
-    booked: !!bookedSlots[slot.id],
-  }));
-  res.json(updatedSlots);
-});
-
-app.post('/slot', (req, res) => {
-  const { matchid } = req.body;
-
-  if (bookedSlots[matchid]) {
-    return res.json({ message: "Match Already Booked" });
-  }
-
-  bookedSlots[matchid] = true;
-  return res.json({ message: "Match Booked" });
-});
-
 app.post('/insertmany', async(req, res) => {
   if (!db) return res.status(503).json({ error: 'Database not connected' });
   await db.collection("details2").insertMany(req.body)
@@ -183,31 +89,116 @@ app.post('/insertmany', async(req, res) => {
   .catch((e)=>console.log(e))
 })
 
-let bookedSlots = {}; 
+async function seedDefaults() {
+    if (!db) return;
+    const matchCount = await db.collection("matches").countDocuments();
+    if (matchCount === 0) {
+        await db.collection("matches").insertMany([
+            { matchId: 'match1', team1: 'CIC Hackers', team2: 'ECE Rockers', match: 'CIC Hackers vs ECE Rockers', runs: 0, wickets: 0, overs: 0.0 },
+            { matchId: 'match2', team1: 'IT Techies', team2: 'Royal Civils', match: 'IT Techies vs Royal Civils', runs: 0, wickets: 0, overs: 0.0 },
+        ]);
+    }
+    const slotCount = await db.collection("slots").countDocuments();
+    if (slotCount === 0) {
+        await db.collection("slots").insertMany([
+            { id: 'match1', name: '15 Aug Morning session', booked: false },
+            { id: 'match2', name: '15 Aug Evening session', booked: false },
+            { id: 'match3', name: '16 Aug Morning session', booked: false },
+            { id: 'match4', name: '16 Aug Evening session', booked: false },
+        ]);
+    }
+}
 
-
-
-const slots = [
-  { id: 'match1', name: '15 Aug Morning session', booked: false },
-  { id: 'match2', name: '15 Aug Evening session', booked: false },
-  { id: 'match3', name: '16 Aug Morning session', booked: false },
-  { id: 'match4', name: '16 Aug Evening session', booked: false },
-];
-
-app.delete('/slot', (req, res) => {
-  const { matchid } = req.body;
-
-  if (!bookedSlots[matchid]) {
-    return res.json({ message: "Match Not Found" });
-  }
-
-  delete bookedSlots[matchid];
-  return res.json({ message: "Match Deleted" });
+app.get('/livescore', async (req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    const matchId = req.query.matchId || 'match1';
+    try {
+        const match = await db.collection("matches").findOne({ matchId });
+        if (match) {
+            res.json(match);
+        } else {
+            res.status(404).json({ error: 'Match not found' });
+        }
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ error: 'Server error' });
+    }
 });
-  
 
-connectToDB(() => {
+app.post('/score', async (req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    const { matchId, runs, wickets, overs, team1Name, team2Name } = req.body;
+    try {
+        const existing = await db.collection("matches").findOne({ matchId });
+        if (!existing) {
+            return res.status(404).json({ error: 'Match not found' });
+        }
+        const t1 = team1Name || existing.team1;
+        const t2 = team2Name || existing.team2;
+        await db.collection("matches").updateOne({ matchId }, {
+            $set: {
+                team1: t1,
+                team2: t2,
+                match: t1 + " vs " + t2,
+                runs: runs !== undefined && runs !== '' ? parseInt(runs) : existing.runs,
+                wickets: wickets !== undefined && wickets !== '' ? parseInt(wickets) : existing.wickets,
+                overs: overs !== undefined && overs !== '' ? parseFloat(overs) : existing.overs,
+            }
+        });
+        const updated = await db.collection("matches").findOne({ matchId });
+        res.json({ message: 'Score updated successfully', match: updated });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+app.get('/slots', async (req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    try {
+        const slots = await db.collection("slots").find().toArray();
+        res.json(slots);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching slots', error });
+    }
+});
+
+app.post('/slot', async (req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    const { matchid } = req.body;
+    try {
+        const slot = await db.collection("slots").findOne({ id: matchid });
+        if (!slot) {
+            return res.json({ message: "Match Not Found" });
+        }
+        if (slot.booked) {
+            return res.json({ message: "Match Already Booked" });
+        }
+        await db.collection("slots").updateOne({ id: matchid }, { $set: { booked: true } });
+        return res.json({ message: "Match Booked" });
+    } catch (error) {
+        res.status(500).json({ message: 'Error booking slot', error });
+    }
+});
+
+app.delete('/slot', async (req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    const { matchid } = req.body;
+    try {
+        const slot = await db.collection("slots").findOne({ id: matchid });
+        if (!slot || !slot.booked) {
+            return res.json({ message: "Match Not Found" });
+        }
+        await db.collection("slots").updateOne({ id: matchid }, { $set: { booked: false } });
+        return res.json({ message: "Match Deleted" });
+    } catch (error) {
+        res.status(500).json({ message: 'Error deleting slot', error });
+    }
+});
+
+connectToDB(async () => {
+    await seedDefaults();
     app.listen(9000, () => {
         console.log("server running at 9000");
-    })
-})
+    });
+});

@@ -4,8 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pkp": "nodemon nodejs ./src/server.js"
+    "pkp": "nodemon ./src/server.js"
   },
   "author": "",
   "license": "ISC",
