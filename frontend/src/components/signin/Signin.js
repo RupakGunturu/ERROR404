@@ -1,140 +1,195 @@
-import { 
-  Card, 
-  CardBody, 
-  FormControl, 
-  FormHelperText, 
-  FormLabel, 
-  Input, 
-  Button,
-  Text,
+import {
+    Card,
+    CardBody,
+    FormControl,
+    FormLabel,
+    Input,
+    InputGroup,
+    InputRightElement,
+    IconButton,
+    Button,
+    Text,
+    VStack,
+    Heading,
+    Flex,
+    Link as ChakraLink,
+    Box,
+    Divider,
+    useToast,
 } from "@chakra-ui/react";
 import axios from 'axios';
 import { api } from "../actions/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "../navbar/nav";
-// import Navbar from "../navbar/nav";
-// import { Navbar } from "../navbar/nav";
+import PageWrapper from "../wrapper/PageWrapper";
+import AnimatedSection from "../wrapper/AnimatedSection";
 
 export const SignIn = () => {
-  const [Gmail, setGmail] = useState('');
-  const [Password, setPassword] = useState('');
-  const nav = useNavigate();
+    const [Gmail, setGmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const nav = useNavigate();
+    const toast = useToast();
+
+    useEffect(() => {
+        if (sessionStorage.getItem('userAuth') === 'true') {
+            nav('/live');
+        }
+    }, [nav]);
 
   const Signin = async () => {
       await axios.post(api + "/signin", { Gmail, Password })
           .then((res) => {
               if (res.data.message) {
-                  console.log(res?.data?.values);
-                  alert(res.data.message);
-                  // sessionStorage.setItem('SlothAuth', 'true');
-                  // nav('/slot-booking');
+                  toast({ title: 'Success', description: 'Login successful', status: 'success', duration: 3000, isClosable: true, position: 'top-right' })
+                  sessionStorage.setItem('userAuth', 'true');
+                  nav('/live');
               } else {
-                  alert(res.data.error);
+                  toast({ title: 'Error', description: res.data.error || 'Login failed', status: 'error', duration: 3000, isClosable: true, position: 'top-right' })
                   nav('/signup');
               }
           })
-          .catch((e) => console.log(e));
+          .catch((e) => {
+              toast({ title: 'Connection Error', description: 'Could not reach server. Make sure the backend is running on port 9000.', status: 'error', duration: 4000, isClosable: true, position: 'top-right' })
+              console.log(e);
+          });
   };
 
-  return (
-    <>
-      <Navbar/>
-      <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          height: '100vh', 
-          width: '100vw', 
-          backgroundImage: `url('https://i.ibb.co/XFJpjkB/pixelcut-export.jpg')`, 
-          backgroundSize: 'cover',
-          padding: '20px',
-          margin: '0',
-          overflow: 'hidden', // Disable scrolling
-          position: 'relative', // Ensure the header is positioned properly
-        }}>
-          <header style={{ 
-              width: '100%', 
-              position: 'absolute', 
-              top: '20px', 
-              left: '20px',
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center', 
-              padding: '0 20px'
-          }}>
-              {/* Add your logo images here */}
-          </header>
-          <Card style={{
-            width: '100%',
-            maxWidth: '400px',
-            background: 'rgba(255, 255, 255, 0.8)',
-            borderRadius: '15px',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-            padding: '20px'
-          }}>
-            <CardBody>
-              <h2 style={{ 
-                textAlign: 'center', 
-                fontSize: '24px', 
-                fontWeight: 'bold', 
-                marginBottom: '20px', 
-                color: '#1a202c'
-              }}>
-                Sign In
-              </h2>
-              
-              <FormControl marginBottom="15px">
-                <FormLabel color="#1a202c">Email address</FormLabel> 
-                  <Input type='email' placeholder="Enter your email" onChange={(e)=>setGmail(e.target.value)} style={{
-                  borderRadius: '10px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  border: '1px solid #ccc',
-                  marginBottom: '5px',
-                  color: '#1a202c'
-                }}/>
-                <FormHelperText color="#1a202c">We'll never share your email.</FormHelperText>  
-              </FormControl>
-    
-              <FormControl marginBottom="20px">
-                <FormLabel color="#1a202c">Password</FormLabel> 
-                <Input type='password' placeholder="Enter your password" onChange={(e)=>setPassword(e.target.value)} style={{
-                  borderRadius: '10px',
-                  padding: '10px',
-                  fontSize: '16px',
-                  border: '1px solid #ccc',
-                  marginBottom: '5px',
-                  color: '#1a202c'  
-                }}/>
-                <FormHelperText color="#1a202c">We'll never share your password.</FormHelperText> 
-              </FormControl>
-    
-              <Button colorScheme="purple" onClick={Signin} style={{
-                width: '100%',
-                padding: '10px',
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, #a777e3, #6e8efb)',
-                color: '#fff',
-                fontSize: '18px',
-                fontWeight: 'bold',
-                transition: 'background 0.3s ease',
-                cursor: 'pointer',
-              }}
-              _hover={{ background: 'linear-gradient(135deg, #6e8efb, #a777e3)' }}
-              >
-                Sign In
-              </Button>
-              <Text color="#1a202c"> <br></br>
-                  Don't have an account? <Link to={"/signup"}>
-                      <Button colorScheme="purple">
-                          Sign Up
-                      </Button>
-                  </Link>
-              </Text>
-            </CardBody>
-          </Card>
-        </div>
-    </>
-  );
+    return (
+        <PageWrapper>
+            <Flex minH="calc(100vh - 100px)" align="center" justify="center" px={4}>
+                <AnimatedSection style={{ width: '100%', maxWidth: '440px' }}>
+                    <Card maxW="440px" w="full" bg="surface.900" border="1px solid" borderColor="surface.700" overflow="hidden">
+                        <CardBody p={0}>
+
+                            {/* Blue accent top bar */}
+                            <Box h="3px" bgGradient="linear(to-r, #1d4ed8, #3b82f6)" />
+
+                            <VStack spacing={6} align="stretch" p={8}>
+
+                                {/* Brand Header */}
+                                <VStack spacing={1} align="flex-start">
+                                    <Flex align="center" gap={2} mb={3}>
+                                    
+                                    </Flex>
+
+                                    <Heading
+                                        size="lg"
+                                        color="white"
+                                        fontWeight={700}
+                                        letterSpacing="-0.4px"
+                                        lineHeight="1.2"
+                                    >
+                                        Welcome back
+                                    </Heading>
+                                    <Text color="surface.400" fontSize="sm" mt={1}>
+                                        Sign in to continue to your workspace.
+                                    </Text>
+                                </VStack>
+
+                                <Divider borderColor="surface.700" />
+
+                                {/* Form Fields */}
+                                <VStack spacing={4} align="stretch">
+
+                                    <FormControl>
+                                        <FormLabel
+                                            color="surface.400"
+                                            fontSize="xs"
+                                            fontWeight={600}
+                                            letterSpacing="0.09em"
+                                            textTransform="uppercase"
+                                            mb={1.5}
+                                        >
+                                            Email Address
+                                        </FormLabel>
+                                        <Input
+                                            type="email"
+                                            placeholder="you@company.com"
+                                            onChange={(e) => setGmail(e.target.value)}
+                                        />
+                                    </FormControl>
+
+                                    <FormControl>
+                                        <Flex justify="space-between" align="center" mb={1.5}>
+                                            <FormLabel
+                                                color="surface.400"
+                                                fontSize="xs"
+                                                fontWeight={600}
+                                                letterSpacing="0.09em"
+                                                textTransform="uppercase"
+                                                mb={0}
+                                            >
+                                                Password
+                                            </FormLabel>
+                                            <ChakraLink
+                                                as={Link}
+                                                to="/forgot"
+                                                color="accent.400"
+                                                fontSize="xs"
+                                                fontWeight={500}
+                                                _hover={{ color: "accent.300", textDecoration: "none" }}
+                                            >
+                                                Forgot password?
+                                            </ChakraLink>
+                                        </Flex>
+                                        <InputGroup>
+                                            <Input
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="Enter your password"
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                pr="3rem"
+                                            />
+                                            <InputRightElement h="full" pr={1}>
+                                                <IconButton
+                                                    aria-label={showPassword ? "Hide password" : "Show password"}
+                                                    icon={showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    color="surface.500"
+                                                    _hover={{ color: "surface.100", bg: "transparent" }}
+                                                    onClick={() => setShowPassword(!showPassword)}
+                                                />
+                                            </InputRightElement>
+                                        </InputGroup>
+                                    </FormControl>
+
+                                </VStack>
+
+                                <Button
+                                    variant="primary"
+                                    onClick={Signin}
+                                    width="full"
+                                    size="lg"
+                                    fontSize="sm"
+                                    fontWeight={600}
+                                    letterSpacing="0.05em"
+                                >
+                                    Sign In
+                                </Button>
+
+                                <Flex align="center" justify="center" gap={1.5}>
+                                    <Text color="surface.500" fontSize="sm">
+                                        Don't have an account?
+                                    </Text>
+                                    <ChakraLink
+                                        as={Link}
+                                        to="/signup"
+                                        color="accent.400"
+                                        fontWeight={600}
+                                        fontSize="sm"
+                                        _hover={{ color: "accent.300", textDecoration: "none" }}
+                                    >
+                                        Create one
+                                    </ChakraLink>
+                                </Flex>
+
+                            </VStack>
+                        </CardBody>
+                    </Card>
+                </AnimatedSection>
+            </Flex>
+        </PageWrapper>
+    );
 };

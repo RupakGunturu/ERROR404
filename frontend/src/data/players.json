@@ -1,0 +1,404 @@
+[
+  {
+    "PlayerName": "Shastri",
+    "Team": "IT",
+    "Runs": 2443,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "Riyan",
+    "Team": "IT",
+    "Runs": 3323,
+    "Wickets": 2
+  },
+  {
+    "PlayerName": "Ram",
+    "Team": "IT",
+    "Runs": 5432,
+    "Wickets": 10
+  },
+  {
+    "PlayerName": "Madhav",
+    "Team": "IT",
+    "Runs": 6542,
+    "Wickets": 21
+  },
+  {
+    "PlayerName": "Bhaskar",
+    "Team": "IT",
+    "Runs": 300,
+    "Wickets": 32
+  },
+  {
+    "PlayerName": "Adi",
+    "Team": "IT",
+    "Runs": 6201,
+    "Wickets": 7
+  },
+  {
+    "PlayerName": "Teja",
+    "Team": "IT",
+    "Runs": 243,
+    "Wickets": 21
+  },
+  {
+    "PlayerName": "Santhosh",
+    "Team": "IT",
+    "Runs": 1002,
+    "Wickets": 16
+  },
+  {
+    "PlayerName": "Anil",
+    "Team": "IT",
+    "Runs": 2561,
+    "Wickets": 12
+  },
+  {
+    "PlayerName": "Nishanth",
+    "Team": "IT",
+    "Runs": 4443,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Ishanth",
+    "Team": "IT",
+    "Runs": 97,
+    "Wickets": 42
+  },
+  {
+    "PlayerName": "Vijay",
+    "Team": "IT",
+    "Runs": 97,
+    "Wickets": 42
+  },
+  {
+    "PlayerName": "Rupak",
+    "Team": "CIC",
+    "Runs": 10118,
+    "Wickets": 18
+  },
+  {
+    "PlayerName": "Krupa",
+    "Team": "CIC",
+    "Runs": 982,
+    "Wickets": 22
+  },
+  {
+    "PlayerName": "Uday",
+    "Team": "CIC",
+    "Runs": 1781,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Arjun",
+    "Team": "CIC",
+    "Runs": 2413,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Manoj",
+    "Team": "CIC",
+    "Runs": 1602,
+    "Wickets": 9
+  },
+  {
+    "PlayerName": "Sai Vardhan",
+    "Team": "CIC",
+    "Runs": 3231,
+    "Wickets": 2
+  },
+  {
+    "PlayerName": "Vijay",
+    "Team": "CIC",
+    "Runs": 5231,
+    "Wickets": 18
+  },
+  {
+    "PlayerName": "Rasheed",
+    "Team": "CSE",
+    "Runs": 3173,
+    "Wickets": 19
+  },
+  {
+    "PlayerName": "Shankar",
+    "Team": "CSE",
+    "Runs": 5653,
+    "Wickets": 15
+  },
+  {
+    "PlayerName": "Pranith",
+    "Team": "CSE",
+    "Runs": 3192,
+    "Wickets": 35
+  },
+  {
+    "PlayerName": "Pawan",
+    "Team": "CSE",
+    "Runs": 6521,
+    "Wickets": 23
+  },
+  {
+    "PlayerName": "Satish",
+    "Team": "CSE",
+    "Runs": 5476,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "Rahul",
+    "Team": "CSE",
+    "Runs": 5631,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Paradeep",
+    "Team": "CSE",
+    "Runs": 5286,
+    "Wickets": 14
+  },
+  {
+    "PlayerName": "Krishna",
+    "Team": "CSE",
+    "Runs": 1982,
+    "Wickets": 12
+  },
+  {
+    "PlayerName": "Sandeep",
+    "Team": "CSE",
+    "Runs": 3589,
+    "Wickets": 6
+  },
+  {
+    "PlayerName": "Vinay",
+    "Team": "CSE",
+    "Runs": 4723,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Amar",
+    "Team": "CSE",
+    "Runs": 2231,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Karthik",
+    "Team": "EEE",
+    "Runs": 4213,
+    "Wickets": 21
+  },
+  {
+    "PlayerName": "Madhan",
+    "Team": "EEE",
+    "Runs": 5321,
+    "Wickets": 6
+  },
+  {
+    "PlayerName": "Rohan",
+    "Team": "EEE",
+    "Runs": 3322,
+    "Wickets": 15
+  },
+  {
+    "PlayerName": "Sekhar",
+    "Team": "EEE",
+    "Runs": 1721,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Reddy",
+    "Team": "EEE",
+    "Runs": 5476,
+    "Wickets": 15
+  },
+  {
+    "PlayerName": "Praneeth",
+    "Team": "EEE",
+    "Runs": 6131,
+    "Wickets": 7
+  },
+  {
+    "PlayerName": "Prasanth",
+    "Team": "EEE",
+    "Runs": 1726,
+    "Wickets": 24
+  },
+  {
+    "PlayerName": "Sudheer",
+    "Team": "EEE",
+    "Runs": 6282,
+    "Wickets": 2
+  },
+  {
+    "PlayerName": "Sai",
+    "Team": "EEE",
+    "Runs": 1722,
+    "Wickets": 26
+  },
+  {
+    "PlayerName": "Jashwanth",
+    "Team": "EEE",
+    "Runs": 4315,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Jagadesh",
+    "Team": "EEE",
+    "Runs": 5314,
+    "Wickets": 11
+  },
+  {
+    "PlayerName": "Virat",
+    "Team": "CIVIL",
+    "Runs": 5213,
+    "Wickets": 21
+  },
+  {
+    "PlayerName": "Rohit",
+    "Team": "CIVIL",
+    "Runs": 3276,
+    "Wickets": 16
+  },
+  {
+    "PlayerName": "Viraj",
+    "Team": "CIVIL",
+    "Runs": 2233,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "Akhil",
+    "Team": "CIC",
+    "Runs": 9469,
+    "Wickets": 3
+  },
+  {
+    "PlayerName": "Desai",
+    "Team": "CIVIL",
+    "Runs": 5666,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "Dev",
+    "Team": "CIVIL",
+    "Runs": 3161,
+    "Wickets": 8
+  },
+  {
+    "PlayerName": "Jay",
+    "Team": "CIVIL",
+    "Runs": 6668,
+    "Wickets": 0
+  },
+  {
+    "PlayerName": "Vikram",
+    "Team": "CIVIL",
+    "Runs": 4676,
+    "Wickets": 4
+  },
+  {
+    "PlayerName": "Kula Sheckar",
+    "Team": "ECE",
+    "Runs": 7623,
+    "Wickets": 3
+  },
+  {
+    "PlayerName": "Cyril",
+    "Team": "CIVIL",
+    "Runs": 6578,
+    "Wickets": 12
+  },
+  {
+    "PlayerName": "Manohar",
+    "Team": "CIVIL",
+    "Runs": 3415,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Jagadesh",
+    "Team": "CIVIL",
+    "Runs": 4135,
+    "Wickets": 10
+  },
+  {
+    "PlayerName": "Mahendra",
+    "Team": "CIC",
+    "Runs": 7632,
+    "Wickets": 21
+  },
+  {
+    "PlayerName": "Susheel",
+    "Team": "MECH",
+    "Runs": 6721,
+    "Wickets": 6
+  },
+  {
+    "PlayerName": "Padma Rao",
+    "Team": "MECH",
+    "Runs": 5431,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "David",
+    "Team": "MECH",
+    "Runs": 2681,
+    "Wickets": 3
+  },
+  {
+    "PlayerName": "Mansoor",
+    "Team": "MECH",
+    "Runs": 6656,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Raja",
+    "Team": "MECH",
+    "Runs": 1365,
+    "Wickets": 5
+  },
+  {
+    "PlayerName": "Pavan",
+    "Team": "CIC",
+    "Runs": 7833,
+    "Wickets": 12
+  },
+  {
+    "PlayerName": "Lokesh",
+    "Team": "MECH",
+    "Runs": 6676,
+    "Wickets": 24
+  },
+  {
+    "PlayerName": "Ajay",
+    "Team": "MECH",
+    "Runs": 4621,
+    "Wickets": 13
+  },
+  {
+    "PlayerName": "Murthy",
+    "Team": "CIC",
+    "Runs": 7632,
+    "Wickets": 12
+  },
+  {
+    "PlayerName": "Yash",
+    "Team": "MECH",
+    "Runs": 5676,
+    "Wickets": 17
+  },
+  {
+    "PlayerName": "Tharun",
+    "Team": "MECH",
+    "Runs": 4754,
+    "Wickets": 18
+  },
+  {
+    "PlayerName": "Jithu",
+    "Team": "CSE",
+    "Runs": 7611,
+    "Wickets": 8
+  },
+  {
+    "PlayerName": "Vishnu",
+    "Team": "CIC",
+    "Runs": 7542,
+    "Wickets": 25
+  }
+]

@@ -1,113 +1,363 @@
-import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import { Box, Heading, Text, Button, VStack, Flex } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
+import { Box, Text, Flex, Container, VStack } from '@chakra-ui/react';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { GiCricketBat } from 'react-icons/gi';
+import AnimatedSection from './wrapper/AnimatedSection';
 
-export const Home = () => {
-  const nav = useNavigate();
+/* ─── Cricket ground SVG watermark ─────────────────────────────────────── */
+const CricketGroundWatermark = () => (
+  <Box
+    position="absolute"
+    top="50%"
+    left="50%"
+    style={{ transform: 'translate(-50%, -50%)', animation: 'pulse-ground 9s ease-in-out infinite' }}
+    width={{ base: '310px', md: '580px' }}
+    height={{ base: '310px', md: '580px' }}
+    pointerEvents="none"
+    userSelect="none"
+    zIndex={0}
+  >
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      {/* Outer boundary – dashed oval */}
+      <ellipse cx="200" cy="200" rx="192" ry="176"
+        fill="none" stroke="#2E86C1" strokeWidth="1.4" strokeDasharray="7 5" opacity="0.55" />
+      {/* 30-yard circle */}
+      <ellipse cx="200" cy="200" rx="108" ry="96"
+        fill="none" stroke="#D4A017" strokeWidth="1" strokeDasharray="4 5" opacity="0.45" />
+      {/* Pitch rectangle */}
+      <rect x="186" y="107" width="28" height="186"
+        fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.9" />
+      {/* Bowling crease – top */}
+      <line x1="170" y1="138" x2="230" y2="138" stroke="#D4A017" strokeWidth="1.1" opacity="0.5" />
+      {/* Bowling crease – bottom */}
+      <line x1="170" y1="262" x2="230" y2="262" stroke="#D4A017" strokeWidth="1.1" opacity="0.5" />
+      {/* Stumps – top */}
+      <line x1="192" y1="133" x2="192" y2="143" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      <line x1="200" y1="133" x2="200" y2="143" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      <line x1="208" y1="133" x2="208" y2="143" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      {/* Stumps – bottom */}
+      <line x1="192" y1="257" x2="192" y2="267" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      <line x1="200" y1="257" x2="200" y2="267" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      <line x1="208" y1="257" x2="208" y2="267" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+      {/* Sight screen markers */}
+      <rect x="178" y="192" width="44" height="16" rx="2"
+        fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" strokeWidth="0.8" />
+    </svg>
+  </Box>
+);
 
-  return (
-    <>
-      <Flex
-        direction="column"
-        align="center"
-        justify="center"
-        position="relative"
-        minH="100vh"
-        p={6}
-        boxShadow="0 8px 16px rgba(0, 0, 0, 0.2)"
-        color="white"
-      >
-        {/* Video Background */}
+/* ─── CTA row ────────────────────────────────────────────────────────────── */
+const CtaRow = ({
+  to, label, dotColor, textColor, borderColor, bg, hoverBg,
+}: {
+  to: string; label: string;
+  dotColor: string; textColor: string;
+  borderColor: string; bg: string; hoverBg: string;
+}) => (
+  <Link to={to} style={{ width: '100%' }}>
+    <Box
+      as="div"
+      w="full"
+      h="52px"
+      borderRadius="10px"
+      border={`1px solid ${borderColor}`}
+      bg={bg}
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      px={5}
+      cursor="pointer"
+      transition="background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease"
+      _hover={{ bg: hoverBg, transform: 'translateY(-1px)' }}
+      role="group"
+    >
+      <Flex align="center" gap="12px">
         <Box
-          as="video"
-          src="https://r3---sn-ci5gup-h55d.googlevideo.com/videoplayback?expire=1723636672&ei=YEe8ZpSkDeLcybgP9Mru8Ak&ip=198.98.59.215&id=o-APaj63rA2dBCzQ68uFtiD161jRiBw-35TFEZnat7zN8F&itag=137&aitags=134%2C136%2C137%2C160&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&siu=1&bui=AQmm2ex6Xm_kNMI9DQYfdGVK1-KyZah7_WCKg5AffGym1Gx0W0ntNX-qz16qqIj8WyuX0rnAsQ&vprv=1&svpuc=1&mime=video%2Fmp4&ns=TMhtUyAiePvB0SYhbZAO6vQQ&rqh=1&gir=yes&clen=16366216&dur=30.989&lmt=1638874742112794&keepalive=yes&c=WEB&sefc=1&txp=5316224&n=grBN-SOnO5Mo_Q&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Csiu%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgY7ilEUiaPq0eqdLWUKdRUcF1tBJfJiiUAxqcidPjA68CIQDQUVnlIk9dWkbx5zZeyfJd7zib8lW0xFEEIcGucLD8rA%3D%3D&range=0-&redirect_counter=1&cm2rm=sn-ci5gup-8b5z7e&rrc=80&fexp=24350516,24350517,24350557,24350561&req_id=662399614e20a6e9&cms_redirect=yes&cmsv=e&mh=44&mip=2401:4900:6599:33bd:2817:f795:5fe2:7fdc&mm=29&mn=sn-ci5gup-h55d&ms=rdu&mt=1723614783&mv=m&mvi=3&pl=48&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AGtxev0wRgIhAJb6P1TL9ou5hP17-os6ImPH7coVAm__0XrXINLkIFEOAiEA1ThjX-LJM6jNaAdspYAjXyT3XylLq29z2SiW9QeiUO8%3D"
-          autoPlay
-          loop
-          muted
-          position="absolute"
-          top="0"
-          left="0"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          zIndex="-1"
+          w="7px"
+          h="7px"
+          borderRadius="full"
+          bg={dotColor}
+          flexShrink={0}
         />
-
-        {/* Content */}
-        <Heading
-          as="h1"
-          size="2xl"
-          mb={8}
-          color="orange"
-          textShadow="2px 2px 6px rgba(1, 0.8, 0.6, 0.8)"
-          fontFamily={'serif'}
-        >
-          <h1>Welcome!! TO SRKR CRICKET CLUB</h1>
-        </Heading>
         <Text
-          fontSize="lg"
-          mb={6}
-          color="Black"
-          textAlign="center"
-          fontStyle="italic"
-          letterSpacing="wider"
-          fontFamily={'serif'}
-          fontWeight={900}
-          size="1xl"
+          color={textColor}
+          fontWeight={600}
+          fontSize="14px"
+          fontFamily="'Inter', sans-serif"
+          letterSpacing="0.1px"
         >
-          From ERROR404
+          {label}
         </Text>
-        <VStack spacing={4} width="100%" maxW="sm">
-          <Link to={'/signin'}>
-            <Button
-              colorScheme="blue"
-              width="full"
-              bg="blue.600"
-              _hover={{ bg: 'blue.700', transform: 'scale(1.05)' }}
-              _active={{ bg: 'blue.800', transform: 'scale(0.95)' }}
-              borderRadius="full"
-              py={6}
-              fontSize="lg"
-              boxShadow="0 4px 12px rgba(0, 0, 0, 0.3)"
-              transition="all 0.3s ease"
-            >
-              Login
-            </Button>
-          </Link>
-          <Link to={'/signup'}>
-            <Button
-              colorScheme="teal"
-              width="full"
-              bg="teal.600"
-              _hover={{ bg: 'teal.700', transform: 'scale(1.05)' }}
-              _active={{ bg: 'teal.800', transform: 'scale(0.95)' }}
-              borderRadius="full"
-              py={6}
-              fontSize="lg"
-              boxShadow="0 4px 12px rgba(1, 0, 0, 0.3)"
-              transition="all 0.3s ease"
-            >
-              Register
-            </Button>
-          </Link>
-          <Link to={'/admin'}>
-            <Button
-              colorScheme="green"
-              width="full"
-              bg="green.600"
-              _hover={{ bg: 'green.700', transform: 'scale(1.05)' }}
-              _active={{ bg: 'green.800', transform: 'scale(0.95)' }}
-              borderRadius="full"
-              py={6}
-              fontSize="lg"
-              boxShadow="0 4px 12px rgba(1, 0, 0, 0.3)"
-              transition="all 0.3s ease"
-            >
-              Admin Dashboard
-            </Button>
-          </Link>
-        </VStack>
       </Flex>
-    </>
+      <ChevronRightIcon color={dotColor} boxSize={4} opacity={0.7} />
+    </Box>
+  </Link>
+);
+
+/* ─── Home ───────────────────────────────────────────────────────────────── */
+export const Home = () => {
+  return (
+    <Box
+      minH="100vh"
+      bg="linear-gradient(160deg, #060D1A 0%, #0B1121 45%, #0E1729 75%, #0B1121 100%)"
+      position="relative"
+      overflow="hidden"
+    >
+      {/* ── Keyframes & font ── */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+        @keyframes pulse-ground {
+          0%, 100% { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
+          50%       { opacity: 0.18; transform: translate(-50%, -50%) scale(1.025); }
+        }
+        @keyframes float-bat {
+          0%, 100% { transform: rotate(-18deg) translateY(0); }
+          50%       { transform: rotate(-18deg) translateY(-10px); }
+        }
+        @keyframes gold-shimmer {
+          0%   { background-position: 0% center; }
+          100% { background-position: 200% center; }
+        }
+        .team-name-shimmer {
+          background: linear-gradient(90deg, #B8860B 0%, #D4A017 35%, #F0C835 55%, #D4A017 75%, #B8860B 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gold-shimmer 4s linear infinite;
+        }
+        /* Left vertical accent stripe */
+        .left-stripe {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, transparent 0%, #D4A017 25%, #2E86C1 75%, transparent 100%);
+          opacity: 0.35;
+        }
+      `}</style>
+
+      {/* Ambient glows */}
+      <Box
+        position="absolute" top="-8%" right="-10%"
+        w={{ base: '260px', md: '480px' }} h={{ base: '260px', md: '480px' }}
+        borderRadius="50%"
+        bg="radial-gradient(circle, rgba(46,134,193,0.09) 0%, transparent 70%)"
+        pointerEvents="none"
+      />
+      <Box
+        position="absolute" bottom="-12%" left="-8%"
+        w={{ base: '200px', md: '360px' }} h={{ base: '200px', md: '360px' }}
+        borderRadius="50%"
+        bg="radial-gradient(circle, rgba(212,160,23,0.07) 0%, transparent 70%)"
+        pointerEvents="none"
+      />
+
+      {/* Left accent stripe – desktop only */}
+      <Box className="left-stripe" display={{ base: 'none', lg: 'block' }} />
+
+      {/* Cricket ground watermark */}
+      <CricketGroundWatermark />
+
+      <Container
+        maxW={{ base: '480px', md: '580px', lg: '680px' }}
+        position="relative"
+        zIndex={1}
+        px={{ base: 5, sm: 8, md: 12 }}
+      >
+        <Flex direction="column" align="center" justify="center" minH="100vh" textAlign="center" py={14}>
+
+          {/* ── Season eyebrow ── */}
+          <AnimatedSection>
+            <Flex align="center" gap="10px" mb={8}>
+              <Box w="22px" h="1px" bg="#D4A017" opacity={0.5} />
+              <Box
+                px={4} py="5px"
+                borderRadius="full"
+                border="1px solid rgba(212,160,23,0.22)"
+                bg="rgba(212,160,23,0.05)"
+              >
+                <Text
+                  fontSize="10px"
+                  color="#D4A017"
+                  fontWeight={600}
+                  letterSpacing="2.5px"
+                  fontFamily="'Inter', sans-serif"
+                  textTransform="uppercase"
+                >
+                  SRKR Engineering College · 2024
+                </Text>
+              </Box>
+              <Box w="22px" h="1px" bg="#D4A017" opacity={0.5} />
+            </Flex>
+          </AnimatedSection>
+
+          {/* ── Floating bat ── */}
+          <AnimatedSection delay={0.05}>
+            <Box
+              mb={5}
+              color="#D4A017"
+              fontSize={{ base: '52px', md: '60px' }}
+              lineHeight="1"
+              style={{ animation: 'float-bat 4s ease-in-out infinite' }}
+            >
+              <GiCricketBat />
+            </Box>
+          </AnimatedSection>
+
+          {/* ── Main title ── */}
+          <AnimatedSection delay={0.1}>
+            <Box mb={1}>
+              {/* Big display word */}
+              <Text
+                fontSize={{ base: '84px', md: '108px' }}
+                fontFamily="'Barlow Condensed', sans-serif"
+                fontWeight={900}
+                lineHeight="0.88"
+                color="white"
+                letterSpacing="-2px"
+                textTransform="uppercase"
+              >
+                SRKR
+              </Text>
+              {/* Subtitle row with flanking lines */}
+              <Flex align="center" justify="center" gap={3} mt="6px">
+                <Box flex="1" h="1px" maxW="56px" bg="linear-gradient(90deg, transparent, rgba(46,134,193,0.45))" />
+                <Text
+                  fontSize={{ base: '13px', md: '15px' }}
+                  fontFamily="'Barlow Condensed', sans-serif"
+                  fontWeight={700}
+                  color="#2E86C1"
+                  letterSpacing="8px"
+                  textTransform="uppercase"
+                >
+                  CRICKET CLUB
+                </Text>
+                <Box flex="1" h="1px" maxW="56px" bg="linear-gradient(90deg, rgba(46,134,193,0.45), transparent)" />
+              </Flex>
+            </Box>
+          </AnimatedSection>
+
+          {/* ── Team name badge – THE SIGNATURE ── */}
+          <AnimatedSection delay={0.15}>
+            <Box
+              mt={5}
+              mb={9}
+              px={6}
+              pt="10px"
+              pb="12px"
+              borderRadius="6px"
+              border="1px solid rgba(212,160,23,0.14)"
+              borderTop="2px solid rgba(212,160,23,0.38)"
+              bg="rgba(212,160,23,0.035)"
+              backdropFilter="blur(8px)"
+              minW="200px"
+            >
+              <Text
+                fontSize="8px"
+                color="rgba(255,255,255,0.25)"
+                fontFamily="'Inter', sans-serif"
+                letterSpacing="3px"
+                textTransform="uppercase"
+                mb="6px"
+              >
+                Team
+              </Text>
+              <Text
+                className="team-name-shimmer"
+                fontSize={{ base: '24px', md: '28px' }}
+                fontFamily="'Barlow Condensed', sans-serif"
+                fontWeight={900}
+                letterSpacing="7px"
+                textTransform="uppercase"
+              >
+                ERROR 4 0 4
+              </Text>
+            </Box>
+          </AnimatedSection>
+
+          {/* ── Stats strip ── */}
+          
+
+
+          {/* ── CTAs ── */}
+          <AnimatedSection delay={0.22} style={{ width: '100%' }}>
+            <VStack spacing="10px" w="full">
+
+              {/* Player Login */}
+              <CtaRow
+                to="/signin"
+                label="Player Login"
+                dotColor="rgba(46,134,193,0.8)"
+                textColor="rgba(255,255,255,0.92)"
+                borderColor="rgba(46,134,193,0.22)"
+                bg="rgba(46,134,193,0.1)"
+                hoverBg="rgba(46,134,193,0.17)"
+              />
+
+              {/* New Registration */}
+              <CtaRow
+                to="/signup"
+                label="New Registration"
+                dotColor="rgba(212,160,23,0.7)"
+                textColor="rgba(255,255,255,0.8)"
+                borderColor="rgba(255,255,255,0.07)"
+                bg="rgba(255,255,255,0.03)"
+                hoverBg="rgba(212,160,23,0.06)"
+              />
+
+              {/* Divider */}
+              <Flex align="center" gap={3} w="full" py="4px">
+                <Box flex="1" h="1px" bg="rgba(255,255,255,0.05)" />
+                <Text
+                  fontSize="8px"
+                  color="rgba(255,255,255,0.18)"
+                  fontFamily="'Inter', sans-serif"
+                  letterSpacing="2.5px"
+                  textTransform="uppercase"
+                  flexShrink={0}
+                >
+                  Admin Access
+                </Text>
+                <Box flex="1" h="1px" bg="rgba(255,255,255,0.05)" />
+              </Flex>
+
+              {/* Admin Dashboard */}
+              <CtaRow
+                to="/admin"
+                label="Admin Dashboard"
+                dotColor="rgba(212,160,23,0.4)"
+                textColor="rgba(255,255,255,0.45)"
+                borderColor="rgba(212,160,23,0.12)"
+                bg="transparent"
+                hoverBg="rgba(212,160,23,0.04)"
+              />
+
+            </VStack>
+          </AnimatedSection>
+        </Flex>
+      </Container>
+
+      {/* ── Footer ── */}
+      <Box pb={7} position="relative" zIndex={1}>
+        <Flex justify="center" direction="column" align="center" gap="6px">
+          <Flex align="center" gap={2}>
+            <Box w="14px" h="1px" bg="rgba(255,255,255,0.08)" />
+            <Box w="4px" h="4px" borderRadius="full" bg="rgba(212,160,23,0.25)" />
+            <Box w="14px" h="1px" bg="rgba(255,255,255,0.08)" />
+          </Flex>
+          <Text
+            fontSize="10px"
+            color="rgba(255,255,255,0.18)"
+            fontFamily="'Inter', sans-serif"
+            letterSpacing="1.5px"
+          >
+            © 2024 SRKR CRICKET CLUB · ERROR 4 0 4
+          </Text>
+        </Flex>
+      </Box>
+    </Box>
   );
-}
+};

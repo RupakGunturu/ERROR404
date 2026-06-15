@@ -11,6 +11,7 @@ app.post('/', (req, res) => {
 })
 
 app.post('/ast', async(req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
     await db.collection("ast").find().toArray()
     .then((result)=>{
         res.json(result)
@@ -19,7 +20,7 @@ app.post('/ast', async(req, res) => {
 })
 
 app.post('/insert', async(req, res) => {
-    
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
     await db.collection("ast").insertOne({Name:req.body.name,Team:req.body.team})
     .then((result)=>{
         res.json(result)
@@ -28,6 +29,7 @@ app.post('/insert', async(req, res) => {
 })
 
 app.post('/signin', async(req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
     console.log(req.body)
     await db.collection("newuser").findOne({Gmail:req.body.Gmail})
     .then((result)=>{
@@ -42,6 +44,7 @@ app.post('/signin', async(req, res) => {
 })
 
 app.post('/signup', async(req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
     console.log(req.body)
     await db.collection("newuser").insertOne({Gmail:req.body.Gmail,Password:req.body.Password,Phone:req.body.Phone,Registerno:req.body.Register})
     .then((result)=>{
@@ -55,7 +58,21 @@ app.post('/signup', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
+app.post('/admin-signin', async(req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
+    await db.collection("newuser").findOne({Gmail:req.body.Gmail})
+    .then((result)=>{
+        if(result?.Password===req.body.Password){
+            res.json({message:"login success", values:result})
+        } else {
+            res.json({error:"Invalid credentials"})
+        }
+    })
+    .catch((e)=>console.log(e))
+})
+
 app.post('/findmany', async(req, res) => {
+    if (!db) return res.status(503).json({ error: 'Database not connected' });
     await db.collection("details2").find().toArray()
     .then((result)=>{
         res.json(result)
@@ -64,8 +81,8 @@ app.post('/findmany', async(req, res) => {
 })
 
 let matches = {
-    match1: { match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
-    match2: { match: "IT Techies vs Royal Civils ", runs: 0, wickets: 0, overs: 0.0 }
+    match1: { team1: "CIC Hackers", team2: "ECE Rockers", match: "CIC Hackers vs ECE Rockers", runs: 0, wickets: 0, overs: 0.0 },
+    match2: { team1: "IT Techies", team2: "Royal Civils", match: "IT Techies vs Royal Civils", runs: 0, wickets: 0, overs: 0.0 }
   };
 
   app.get('/livescore', (req, res) => {
@@ -80,17 +97,22 @@ let matches = {
   });
 
   app.post('/score', (req, res) => {
-    const { matchId, runs, wickets, overs } = req.body;
+    const { matchId, runs, wickets, overs, team1Name, team2Name } = req.body;
   
     if (!matches[matchId]) {
       return res.status(404).json({ error: 'Match not found' });
     }
   
+    const t1 = team1Name || matches[matchId].team1;
+    const t2 = team2Name || matches[matchId].team2;
+
     matches[matchId] = {
-      ...matches[matchId],
-      runs: parseInt(runs),
-      wickets: parseInt(wickets),
-      overs: parseFloat(overs)
+      team1: t1,
+      team2: t2,
+      match: t1 + " vs " + t2,
+      runs: runs !== undefined && runs !== '' ? parseInt(runs) : matches[matchId].runs,
+      wickets: wickets !== undefined && wickets !== '' ? parseInt(wickets) : matches[matchId].wickets,
+      overs: overs !== undefined && overs !== '' ? parseFloat(overs) : matches[matchId].overs
     };
   
     res.json({ message: 'Score updated successfully', match: matches[matchId] });
@@ -153,6 +175,7 @@ app.post('/slot', (req, res) => {
 });
 
 app.post('/insertmany', async(req, res) => {
+  if (!db) return res.status(503).json({ error: 'Database not connected' });
   await db.collection("details2").insertMany(req.body)
   .then((result)=>{
       res.json(result)

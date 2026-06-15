@@ -1,136 +1,128 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Box, Text, Heading, Flex, Spinner, Button } from '@chakra-ui/react';
+import { Box, Text, Heading, Flex, Spinner, Button, VStack, HStack } from '@chakra-ui/react';
 import { api } from "../actions/api";
 import { Link } from "react-router-dom";
+import AnimatedSection from "../wrapper/AnimatedSection";
 
 export const Livescore = () => {
     const [scores, setScores] = useState([]);
-    const [completedMatches, setCompletedMatches] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [completedMatches] = useState([
+        { team1: "CIC Hackers", team2: "Mech Robots", score: "150/7 (20.0)", result: "CIC Hackers won by 3 wickets" },
+        { team1: "CSE Coders", team2: "EEE Rockers", score: "180/6 (20.0)", result: "EEE Rockers won by 4 wickets" },
+        { team1: "Royal Civil", team2: "IT Rogers", score: "140/9 (20.0)", result: "Royal Civil won by 1 wicket" }
+    ]);
 
     useEffect(() => {
         const fetchScores = () => {
             const matchIds = ['match1', 'match2'];
-            const scoreRequests = matchIds.map(id => axios.get(`${api}/livescore?matchId=${id}`));
-            
-            Promise.all(scoreRequests)
+            Promise.all(matchIds.map(id => axios.get(`${api}/livescore?matchId=${id}`)))
                 .then(responses => {
-                    const fetchedScores = responses.map(response => response.data);
-                    setScores(fetchedScores);
+                    setScores(responses.map(r => r.data));
+                    setLoading(false);
                 })
-                .catch((e) => console.log(e));
+                .catch(() => setLoading(false));
         };
 
         fetchScores();
-
-        const interval = setInterval(fetchScores, 1);
+        const interval = setInterval(fetchScores, 5000);
         return () => clearInterval(interval);
     }, []);
 
-    useEffect(() => {
-        const completed = [
-            { team1: "CIC Hackers", team2: "Mech Robots", score: "150/7 (20.0 overs)", result: "CIC Hackers won by 3 wickets" },
-            { team1: "CSE Coders", team2: "EEE Rockers", score: "180/6 (20.0 overs)", result: "EEE Rockers won by 4 wickets" },
-            { team1: "Royal Civil", team2: "IT Rogers", score: "140/9 (20.0 overs)", result: "Royal Civil won by 1 wicket" }
-        ];
-        setCompletedMatches(completed);
-    }, []);
+    const LiveDot = () => (
+        <Box as="span" display="inline-block" w={2} h={2} borderRadius="full" bg="red.400" mr={2} boxShadow="0 0 8px rgba(255,0,0,0.6)" animation="pulse 1.5s infinite" />
+    );
 
     return (
-        <Box
-            minH="100vh"
-            p={4}
-            position="relative"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            color="white"
-            overflow="hidden"
-        >
-            <img
-                alt="background"
-                src="https://i.postimg.cc/rw53wcd4/pixelcut-export-4.jpg"
-                style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    zIndex: '-1',
-                }}
-            />
-            <Heading size="lg" mb={6} textAlign="center" color="white" textShadow="2px 2px 8px rgba(0, 0, 0, 0.8)">
-                Live Cricket Scores
-            </Heading>
+        <Box minH="100vh" pt={4}>
+            <style>{`@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }`}</style>
+            <VStack spacing={8} align="stretch" maxW="6xl" mx="auto" px={{ base: 4, md: 6 }}>
+                <AnimatedSection>
+                    <Flex direction="column" align="center" gap={2}>
+                        <Heading size="xl" color="white" fontWeight={700}>
+                            🏏 Live Cricket Scores
+                        </Heading>
+                        <HStack spacing={1}>
+                            <LiveDot />
+                            <Text color="surface.400" fontSize="sm">Live — auto-updates every 5s</Text>
+                        </HStack>
+                    </Flex>
+                </AnimatedSection>
 
-            <Flex direction="row" align="flex-start" w="100%" maxW="4xl" gap={6}>
-                <Box flex="2" p={4} bg="rgba(0, 0, 0, 0.6)" borderRadius="lg" boxShadow="lg">
-                    {scores.length > 0 ? (
-                        scores.map((score, index) => (
-                            <Box
-                                key={index}
-                                w="100%"
-                                p={4}
-                                borderRadius="lg"
-                                boxShadow="lg"
-                                bg="rgba(0, 0, 0, 0.7)"
-                                textAlign="center"
-                                mb={4}
-                            >
-                                <Text fontSize="xl" fontWeight="bold">
-                                    Match {index + 1}
-                                </Text>
-                                
-                                <Text fontSize="2xl" fontWeight="bold" color="yellow.300" mt={2}>
-                                    {score.runs}/{score.wickets} in {score.overs} overs
-                                </Text>
-                                <Text fontSize="md" mt={2}>
-                                    {score.commentary}
-                                </Text>
+                <Flex direction={{ base: 'column', md: 'row' }} gap={6}>
+                    <Box flex="2">
+                        {loading ? (
+                            <Flex justify="center" align="center" minH="200px">
+                                <Spinner size="xl" color="accent.400" />
+                            </Flex>
+                        ) : scores.length > 0 ? (
+                            <VStack spacing={4} align="stretch">
+                                {scores.map((score, index) => (
+                                    <AnimatedSection key={index} delay={index * 0.1}>
+                                        <Box p={6} borderRadius="16px" bg="rgba(26,39,68,0.6)" border="1px solid rgba(255,255,255,0.06)" boxShadow="0 4px 20px rgba(0,0,0,0.2)">
+                                            <Flex justify="space-between" align="center" mb={3}>
+                                                <Text fontSize="xs" color="surface.400" fontWeight={600} textTransform="uppercase" letterSpacing="wide">
+                                                    {score.match || ("Match " + (index + 1))}
+                                                </Text>
+                                                <HStack spacing={1}>
+                                                    <Box w={2} h={2} borderRadius="full" bg="green.400" />
+                                                    <Text fontSize="xs" color="green.400">LIVE</Text>
+                                                </HStack>
+                                            </Flex>
+                                            <Flex align="baseline" gap={3} mb={2}>
+                                                <Text fontSize="3xl" fontWeight={800} color="white">
+                                                    {score.runs || 0}
+                                                    <Text as="span" fontSize="xl" color="surface.400">/{score.wickets || 0}</Text>
+                                                </Text>
+                                                <Text fontSize="sm" color="surface.500">
+                                                    ({score.overs || "0.0"} overs)
+                                                </Text>
+                                            </Flex>
+                                            {score.commentary && (
+                                                <Text fontSize="sm" color="surface.300" fontStyle="italic">
+                                                    "{score.commentary}"
+                                                </Text>
+                                            )}
+                                        </Box>
+                                    </AnimatedSection>
+                                ))}
+                            </VStack>
+                        ) : (
+                            <Flex justify="center" align="center" minH="200px">
+                                <Text color="surface.500">No live matches currently</Text>
+                            </Flex>
+                        )}
+                    </Box>
+
+                    <Box flex="1">
+                        <AnimatedSection delay={0.15}>
+                            <Box p={6} borderRadius="16px" bg="rgba(26,39,68,0.6)" border="1px solid rgba(255,255,255,0.06)" boxShadow="0 4px 20px rgba(0,0,0,0.2)">
+                                <Heading size="sm" color="accent.400" mb={4}>Completed Matches</Heading>
+                                <VStack spacing={3} align="stretch">
+                                    {completedMatches.map((match, index) => (
+                                        <Box key={index} p={3} borderRadius="10px" bg="rgba(255,255,255,0.03)">
+                                            <Text fontWeight={600} fontSize="sm" color="white">{match.team1} vs {match.team2}</Text>
+                                            <Text fontSize="xs" color="accent.400" mt={1}>{match.score}</Text>
+                                            <Text fontSize="xs" color="surface.400" mt={0.5}>{match.result}</Text>
+                                        </Box>
+                                    ))}
+                                </VStack>
                             </Box>
-                        ))
-                    ) : (
-                        <Spinner size="xl" color="yellow.400" />
-                    )}
-                </Box>
-                <Box flex="1" p={4} bg="rgba(0, 0, 0, 0.6)" borderRadius="lg" boxShadow="lg">
-                    <Heading size="md" color="white" mb={4}>
-                        Completed Matches
-                    </Heading>
-                    {completedMatches.map((match, index) => (
-                        <Box
-                            key={index}
-                            mb={4}
-                            p={4}
-                            borderRadius="md"
-                            bg="rgba(255, 255, 255, 0.1)"
-                            textAlign="center"
-                        >
-                            <Text fontWeight="bold" fontSize="lg">{match.team1} vs {match.team2}</Text>
-                            <Text color="yellow.300" fontSize="md">{match.score}</Text>
-                            <Text fontSize="sm">{match.result}</Text>
-                        </Box>
-                    ))}
-                </Box>
-            </Flex>
+                        </AnimatedSection>
+                    </Box>
+                </Flex>
 
-            <Link to={'/player-info'} style={{ marginTop: '20px' }}>
-                <Button
-                    colorScheme="green"
-                    bg="green.600"
-                    _hover={{ bg: 'green.700', transform: 'scale(1.05)' }}
-                    _active={{ bg: 'green.800', transform: 'scale(0.95)' }}
-                    borderRadius="full"
-                    py={6}
-                    fontSize="lg"
-                    boxShadow="0 4px 12px rgba(1, 0, 0, 0.3)"
-                    transition="all 0.3s ease"
-                >
-                    Players Details
-                </Button>
-            </Link>
+                <AnimatedSection delay={0.2}>
+                    <Flex justify="center" pb={8}>
+                        <Link to="/player-info">
+                            <Button variant="glass">
+                                📊 View Players Details
+                            </Button>
+                        </Link>
+                    </Flex>
+                </AnimatedSection>
+            </VStack>
         </Box>
     );
 };
